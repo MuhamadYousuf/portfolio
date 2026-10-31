@@ -16,12 +16,12 @@
   <text x="70" y="830" fill="#d4ff3a" font-family="Impact, 'Arial Black', sans-serif" font-size="96">Rr</text>
   <text x="70" y="910" fill="#d4ff3a" font-family="Helvetica, Arial, sans-serif" font-size="14" letter-spacing="3">U+0052 · U+0072</text>
   <g fill="#0d0d0d" font-family="Helvetica, Arial, sans-serif" font-size="15" letter-spacing="2">
-    <text x="420" y="770">GRIT DISPLAY</text>
-    <text x="420" y="800" fill-opacity=".6">9 WEIGHTS · 2 WIDTHS</text>
-    <text x="420" y="830" fill-opacity=".6">612 GLYPHS · VARIABLE</text>
-    <text x="420" y="860" fill-opacity=".6">LATIN EXT · URDU (BETA)</text>
-    <text x="420" y="930">TYPE SPECIMEN NO. 01</text>
+    <text x="420" y="770">GRIT LETTERING</text>
+    <text x="420" y="800" fill-opacity=".6">ONE WEIGHT · DISPLAY</text>
+    <text x="420" y="830" fill-opacity=".6">A-Z · 0-9 · PUNCTUATION</text>
+    <text x="420" y="860" fill-opacity=".6">DRAWN IN ILLUSTRATOR</text>
+    <text x="420" y="930">SPECIMEN POSTER</text>
   </g>
-  <text x="40" y="60" fill="#0d0d0d" font-family="Helvetica, Arial, sans-serif" font-size="15" letter-spacing="4">YOUSUF TYPE FOUNDRY</text>
+  <text x="40" y="60" fill="#0d0d0d" font-family="Helvetica, Arial, sans-serif" font-size="15" letter-spacing="4">PERSONAL PROJECT</text>
   <text x="760" y="60" fill="#0d0d0d" font-family="Helvetica, Arial, sans-serif" font-size="15" letter-spacing="4" text-anchor="end">2026</text>
 </svg>

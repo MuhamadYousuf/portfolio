@@ -5,7 +5,7 @@ A 3D, graphic-design-first portfolio built with **Vite**, **Three.js**, **GSAP**
 - Draggable 3D ring of project posters around an iridescent liquid-chrome blob (click a poster to open it)
 - Kinetic display type, scroll-reactive marquees, custom cursor, film grain
 - Filterable project grid with 3D tilt cards; each project opens a case-study sheet with brief, approach, palette (click a swatch to copy its hex), typography and deliverables
-- Design principles, services, craft (typography, colour, grid, print) with toolkit bars, experience timeline, process, clients, testimonial
+- Design principles, services, craft (typography, colour, grid, print) with toolkit, experience timeline, process
 - Contact opens a Gmail compose window; headlines auto-fit their column so nothing overflows on phones
 
 ## Develop
