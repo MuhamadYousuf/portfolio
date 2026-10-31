@@ -16,7 +16,7 @@ A Gemini-powered assistant that answers questions about Yousuf's work in English
 - Vercel function: `api/chat.js` — the API key never reaches the browser
 - Local dev: `vite.config.js` serves `/api/chat` with the same handler
 
-Setup: copy `.env.example` to `.env` and set `GEMINI_API_KEY` (from Google AI Studio). On Vercel, add `GEMINI_API_KEY` under Project → Settings → Environment Variables and redeploy. Optional `GEMINI_MODEL` pins a model; the default is `gemini-flash-latest` with `gemini-2.5-flash` as fallback.
+Setup: copy `.env.example` to `.env` and set `GEMINI_API_KEY` (from Google AI Studio). On Vercel, add `GEMINI_API_KEY` under Project → Settings → Environment Variables and redeploy. Optional `GEMINI_MODEL` pins a model; the default is `gemini-flash-lite-latest` (fastest on the free tier) with `gemini-flash-latest` as fallback.
 
 ## Develop
 

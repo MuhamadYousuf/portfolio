@@ -6,8 +6,9 @@ const EMAIL = 'muhammadyousuf77998bp@gmail.com'
 const MAX_TURNS = 12
 const MAX_CHARS = 600
 
-// Model names change often, so try the configured one first, then stable fallbacks.
-const models = () => [...new Set([process.env.GEMINI_MODEL, 'gemini-flash-latest', 'gemini-2.5-flash'].filter(Boolean))]
+// Model names change often, so use Google's "-latest" aliases. Flash-Lite answers fastest on
+// the free tier and has its own quota; full Flash is the backup. (gemini-2.5-flash is retired for new users.)
+const models = () => [...new Set([process.env.GEMINI_MODEL, 'gemini-flash-lite-latest', 'gemini-flash-latest'].filter(Boolean))]
 
 const projectFacts = projects
   .map(
@@ -61,8 +62,8 @@ function sanitize(messages) {
     .map((m) => ({ role: m.role, parts: [{ text: m.text.slice(0, MAX_CHARS) }] }))
 }
 
-const MODEL_TIMEOUT_MS = 15_000
-const TOTAL_BUDGET_MS = 25_000
+const MODEL_TIMEOUT_MS = 14_000
+const TOTAL_BUDGET_MS = 28_000
 
 // Gemini 3.x thinks at length by default, which makes chat painfully slow.
 // 2.5 models take a token budget; newer ones take a level.
