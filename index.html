@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammad Yousuf — Graphic Designer</title>
+    <meta name="description" content="Muhammad Yousuf is a graphic designer crafting brand identities, packaging, posters, type and editorial work that refuses to be quiet." />
+    <meta name="theme-color" content="#0c0c0c" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="loader" id="loader">
+      <div class="loader__count"><span id="loader-num">0</span><sup>%</sup></div>
+      <div class="loader__label">Mixing ink, loading pixels</div>
+    </div>
+
+    <canvas id="webgl" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor" id="cursor"><span id="cursor-label"></span></div>
+
+    <header class="nav">
+      <a href="#top" class="nav__logo">MY<sup>®</sup></a>
+      <nav class="nav__links">
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="nav__status"><i></i>Available — Nov ’26</a>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero__meta">
+          <span>Portfolio © 2019 — 2026</span>
+          <span>Based in Karachi, PK · Working worldwide</span>
+        </div>
+        <h1 class="hero__title">
+          <span class="line"><span class="word">Muhammad</span></span>
+          <span class="line"><span class="word serif">Yousuf</span><span class="word star">✶</span></span>
+          <span class="line"><span class="word outline">Graphic</span></span>
+          <span class="line"><span class="word">Designer</span></span>
+        </h1>
+        <div class="hero__bottom">
+          <p class="hero__intro">I design brands, posters, packaging and type that <em>refuse to be quiet</em>. Drag the ring — every frame is a project.</p>
+          <div class="hero__scroll"><span>Scroll</span><i></i></div>
+        </div>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>Brand Identity</span><b>✶</b><span>Packaging</span><b>✶</b><span>Posters</span><b>✶</b><span>Type Design</span><b>✶</b><span>Editorial</span><b>✶</b><span>Art Direction</span><b>✶</b>
+          <span>Brand Identity</span><b>✶</b><span>Packaging</span><b>✶</b><span>Posters</span><b>✶</b><span>Type Design</span><b>✶</b><span>Editorial</span><b>✶</b><span>Art Direction</span><b>✶</b>
+        </div>
+      </div>
+
+      <section class="work" id="work">
+        <div class="section-head">
+          <span class="section-head__num">(01)</span>
+          <h2 class="section-head__title reveal">Selected <em>work</em></h2>
+          <p class="section-head__text reveal">Eight projects from the last three years — identities, packaging, campaigns and a typeface.</p>
+        </div>
+        <div class="work__grid" id="work-grid"></div>
+      </section>
+
+      <section class="services" id="services">
+        <div class="section-head">
+          <span class="section-head__num">(02)</span>
+          <h2 class="section-head__title reveal">What I <em>do</em></h2>
+        </div>
+        <ul class="services__list">
+          <li class="service"><span class="service__num">01</span><h3>Brand Identity</h3><p>Logos, systems and guidelines that scale from a favicon to a billboard.</p><span class="service__arrow">↗</span></li>
+          <li class="service"><span class="service__num">02</span><h3>Packaging</h3><p>Shelf-stopping structures and labels that make people pick it up.</p><span class="service__arrow">↗</span></li>
+          <li class="service"><span class="service__num">03</span><h3>Posters &amp; Campaigns</h3><p>Print and social campaigns built on one loud, repeatable idea.</p><span class="service__arrow">↗</span></li>
+          <li class="service"><span class="service__num">04</span><h3>Type &amp; Editorial</h3><p>Custom lettering, typefaces and editorial grids with real rhythm.</p><span class="service__arrow">↗</span></li>
+        </ul>
+      </section>
+
+      <section class="about" id="about">
+        <div class="section-head">
+          <span class="section-head__num">(03)</span>
+          <h2 class="section-head__title reveal">About <em>me</em></h2>
+        </div>
+        <div class="about__body">
+          <p class="about__lead reveal">
+            I’m Muhammad Yousuf — a graphic designer who treats every brief like a poster: <em>one big idea</em>, set loud and clear. I work with founders, labels, studios and restaurants who want to be remembered, not just recognised.
+          </p>
+          <div class="about__stats">
+            <div class="stat"><span class="stat__num" data-count="7">0</span><span class="stat__label">Years designing</span></div>
+            <div class="stat"><span class="stat__num" data-count="120">0</span><span class="stat__label">Projects shipped</span></div>
+            <div class="stat"><span class="stat__num" data-count="48">0</span><span class="stat__label">Happy clients</span></div>
+            <div class="stat"><span class="stat__num" data-count="9">0</span><span class="stat__label">Design awards</span></div>
+          </div>
+          <div class="about__tools">
+            <span>Illustrator</span><span>Photoshop</span><span>InDesign</span><span>Figma</span><span>Glyphs</span><span>After Effects</span><span>Blender</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="process">
+        <div class="section-head">
+          <span class="section-head__num">(04)</span>
+          <h2 class="section-head__title reveal">How it <em>works</em></h2>
+        </div>
+        <div class="process__steps">
+          <div class="step"><span>01</span><h3>Listen</h3><p>Workshop, research and a sharp brief we both sign off on.</p></div>
+          <div class="step"><span>02</span><h3>Explore</h3><p>Three distinct directions, from safe to slightly dangerous.</p></div>
+          <div class="step"><span>03</span><h3>Refine</h3><p>One direction pushed until every detail earns its place.</p></div>
+          <div class="step"><span>04</span><h3>Deliver</h3><p>Files, guidelines and templates your team can actually use.</p></div>
+        </div>
+      </section>
+
+      <div class="clients" aria-label="Selected clients">
+        <div class="clients__track">
+          <span>Nocturne</span><span>Kōen</span><span>Fieldwork</span><span>Helio</span><span>Atlas</span><span>Saffron &amp; Salt</span><span>ECHO</span><span>Mono Studio</span>
+          <span>Nocturne</span><span>Kōen</span><span>Fieldwork</span><span>Helio</span><span>Atlas</span><span>Saffron &amp; Salt</span><span>ECHO</span><span>Mono Studio</span>
+        </div>
+      </div>
+
+      <section class="quote">
+        <blockquote class="reveal">“Yousuf gave us an identity people <em>screenshot</em>. Our first pressing sold out in a week.”</blockquote>
+        <cite>— Sana R., Founder, Nocturne Records</cite>
+      </section>
+
+      <section class="contact" id="contact">
+        <span class="section-head__num">(05)</span>
+        <h2 class="contact__title">
+          <span class="line"><span class="word">Let’s make</span></span>
+          <span class="line"><span class="word">something</span></span>
+          <span class="line"><span class="word serif accent">loud.</span></span>
+        </h2>
+        <a class="contact__mail" href="mailto:hello@muhammadyousuf.design" data-cursor="Say hi">hello@muhammadyousuf.design <span>↗</span></a>
+        <div class="contact__foot">
+          <div class="contact__socials">
+            <a href="#" data-cursor="Open">Behance</a>
+            <a href="#" data-cursor="Open">Dribbble</a>
+            <a href="#" data-cursor="Open">Instagram</a>
+            <a href="#" data-cursor="Open">LinkedIn</a>
+          </div>
+          <span>© 2026 Muhammad Yousuf</span>
+          <span id="clock">Karachi —</span>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal" id="modal" aria-hidden="true">
+      <div class="modal__backdrop" data-close></div>
+      <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal__close" data-close aria-label="Close">✕</button>
+        <div class="modal__media"><img id="modal-img" alt="" /></div>
+        <div class="modal__info">
+          <span class="modal__cat" id="modal-cat"></span>
+          <h3 id="modal-title"></h3>
+          <p id="modal-summary"></p>
+          <ul id="modal-deliverables"></ul>
+          <span class="modal__year" id="modal-year"></span>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <defs><pattern id="p" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M20 80 L80 20 M50 20 H80 V50" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="6"/></pattern></defs>
+  <rect width="800" height="1000" fill="#0047ff"/>
+  <rect width="800" height="1000" fill="url(#p)"/>
+  <rect x="250" y="170" width="300" height="600" rx="44" fill="#0a0a0f"/>
+  <rect x="264" y="184" width="272" height="572" rx="32" fill="#f4f6ff"/>
+  <rect x="352" y="196" width="96" height="22" rx="11" fill="#0a0a0f"/>
+  <text x="290" y="270" fill="#0a0a0f" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="26">Where to?</text>
+  <rect x="290" y="290" width="220" height="44" rx="12" fill="#e3e8ff"/>
+  <text x="306" y="318" fill="#0a0a0f" fill-opacity=".5" font-family="Helvetica, Arial, sans-serif" font-size="14">Search destination</text>
+  <rect x="290" y="352" width="220" height="200" rx="16" fill="#dfe5ff"/>
+  <path d="M300 520 C350 470, 380 500, 420 430 S480 380, 500 370" fill="none" stroke="#0047ff" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="300" cy="520" r="9" fill="#0047ff"/><circle cx="500" cy="370" r="9" fill="#ff4d1f"/>
+  <rect x="290" y="570" width="104" height="80" rx="14" fill="#0047ff"/>
+  <rect x="406" y="570" width="104" height="80" rx="14" fill="#0a0a0f"/>
+  <text x="304" y="600" fill="#fff" font-family="Helvetica, Arial, sans-serif" font-size="12">Bike</text>
+  <text x="304" y="630" fill="#fff" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="20">4 min</text>
+  <text x="420" y="600" fill="#fff" font-family="Helvetica, Arial, sans-serif" font-size="12">Scooter</text>
+  <text x="420" y="630" fill="#fff" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="20">2 min</text>
+  <rect x="290" y="672" width="220" height="52" rx="26" fill="#0a0a0f"/>
+  <text x="400" y="704" fill="#fff" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="16" text-anchor="middle">Ride now  &#8594;</text>
+  <path d="M60 920 L120 860 M90 860 H120 V890" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="square"/>
+  <text x="150" y="915" fill="#fff" font-family="Helvetica, Arial, sans-serif" font-weight="900" font-size="64" letter-spacing="-2">atlas</text>
+  <text x="740" y="910" fill="#fff" font-family="Helvetica, Arial, sans-serif" font-size="14" letter-spacing="4" text-anchor="end">URBAN MOBILITY</text>
+  <text x="60" y="80" fill="#fff" font-family="Helvetica, Arial, sans-serif" font-size="15" letter-spacing="4">BRAND + PRODUCT UI</text>
+</svg>

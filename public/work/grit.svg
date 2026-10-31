@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" fill="#d4ff3a"/>
+  <text x="400" y="430" fill="#0d0d0d" font-family="Impact, 'Arial Black', Helvetica, sans-serif" font-weight="900" font-size="400" letter-spacing="-10" text-anchor="middle" textLength="720" lengthAdjust="spacingAndGlyphs">GRIT</text>
+  <rect x="40" y="470" width="720" height="4" fill="#0d0d0d"/>
+  <g fill="none" stroke="#0d0d0d" stroke-opacity=".5" stroke-dasharray="4 6">
+    <line x1="40" y1="138" x2="760" y2="138"/><line x1="40" y1="430" x2="760" y2="430"/>
+  </g>
+  <text x="40" y="128" fill="#0d0d0d" font-family="Helvetica, Arial, sans-serif" font-size="12" letter-spacing="2">CAP HEIGHT</text>
+  <text x="40" y="452" fill="#0d0d0d" font-family="Helvetica, Arial, sans-serif" font-size="12" letter-spacing="2">BASELINE</text>
+  <g fill="#0d0d0d" font-family="Impact, 'Arial Black', Helvetica, sans-serif" font-size="58">
+    <text x="40" y="560">Aa Bb Cc Dd Ee Ff Gg</text>
+    <text x="40" y="630">Hh Ii Jj Kk Ll Mm Nn</text>
+    <text x="40" y="700">0123456789 &amp;!?@#</text>
+  </g>
+  <rect x="40" y="740" width="350" height="200" fill="#0d0d0d"/>
+  <text x="70" y="830" fill="#d4ff3a" font-family="Impact, 'Arial Black', sans-serif" font-size="96">Rr</text>
+  <text x="70" y="910" fill="#d4ff3a" font-family="Helvetica, Arial, sans-serif" font-size="14" letter-spacing="3">U+0052 · U+0072</text>
+  <g fill="#0d0d0d" font-family="Helvetica, Arial, sans-serif" font-size="15" letter-spacing="2">
+    <text x="420" y="770">GRIT DISPLAY</text>
+    <text x="420" y="800" fill-opacity=".6">9 WEIGHTS · 2 WIDTHS</text>
+    <text x="420" y="830" fill-opacity=".6">612 GLYPHS · VARIABLE</text>
+    <text x="420" y="860" fill-opacity=".6">LATIN EXT · URDU (BETA)</text>
+    <text x="420" y="930">TYPE SPECIMEN NO. 01</text>
+  </g>
+  <text x="40" y="60" fill="#0d0d0d" font-family="Helvetica, Arial, sans-serif" font-size="15" letter-spacing="4">YOUSUF TYPE FOUNDRY</text>
+  <text x="760" y="60" fill="#0d0d0d" font-family="Helvetica, Arial, sans-serif" font-size="15" letter-spacing="4" text-anchor="end">2026</text>
+</svg>
