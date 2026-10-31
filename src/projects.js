@@ -13,8 +13,8 @@ export const projects = [
       'The label puts out a few releases a year across different genres and wanted the covers to feel like one family without looking copy-pasted.',
     approach:
       'Everything is built on one shape: the groove ring. Each release changes the ring colour and the position of the “needle” arc, so covers look related but never identical.',
-    palette: ['#0b1033', '#6c4bff', '#ff5ea8', '#c9d0ff'],
-    type: ['Helvetica — Black', 'Instrument Serif — Italic'],
+    palette: ['#11132e', '#6c4bff', '#ff5ea8', '#e8e6ff'],
+    type: ['Archivo Expanded — label & headings', 'Instrument Serif Italic — artists', 'DM Mono — catalogue data'],
     deliverables: ['Logo', 'Album covers', 'Social posts', 'Merch mockups'],
   },
   {
@@ -31,8 +31,8 @@ export const projects = [
       'Most specialty coffee bags look alike: kraft paper, a drawn coffee bean and a wall of tasting notes. Kōen wanted something simpler that stands out on a shelf.',
     approach:
       'A matte black bag with one bright orange sun, placed at a different height for each origin. Tasting notes were cut down to a single italic line.',
-    palette: ['#151210', '#e8572a', '#f2e8d5', '#3a302a'],
-    type: ['Georgia — Regular', 'Helvetica — Regular'],
+    palette: ['#1a1613', '#e4572e', '#b9431f', '#f1e8d8'],
+    type: ['Fraunces — wordmark & origins', 'Inter Tight — details'],
     deliverables: ['Bag design', 'Wordmark', 'Labels', 'Café menu board'],
   },
   {
@@ -49,8 +49,8 @@ export const projects = [
       'A small team and a tiny budget. The design had to work as a printed A2 poster, an Instagram story and a wristband.',
     approach:
       'A simple four-column grid with one rule: the year is always too big for it. The “26” crops differently on each format, so every piece feels custom while using one template.',
-    palette: ['#efede8', '#ff3b1f', '#111111'],
-    type: ['Helvetica — Heavy', 'Helvetica — Bold'],
+    palette: ['#ff3b1f', '#111111', '#1d3fff', '#f1efe8'],
+    type: ['Archivo Condensed & Expanded — the 26 and title', 'Inter Tight — line-up', 'DM Mono — dates'],
     deliverables: ['Poster series', 'Instagram posts & stories', 'Wristbands', 'Signage'],
   },
   {
@@ -67,8 +67,8 @@ export const projects = [
       'Sunscreen branding is usually either clinical or beachy. Helio wanted to feel like part of a daily skincare routine instead.',
     approach:
       'Gradients were picked from sunrise photos and kept to three colours so they print well. The arch shape is used for both the bottle and the layouts.',
-    palette: ['#ffd9c4', '#f8bcd8', '#c9c4ff', '#2b2230'],
-    type: ['Georgia — Regular', 'Helvetica — Regular'],
+    palette: ['#ffd9c4', '#f8bcd8', '#ff9a5c', '#3a2733'],
+    type: ['Fraunces Soft — wordmark & headlines', 'Inter Tight — information'],
     deliverables: ['Logo', 'Packaging', 'Social templates', 'Website mockup'],
   },
   {
@@ -86,7 +86,7 @@ export const projects = [
     approach:
       'I drew each letter in Illustrator on a simple grid, cut small notches where strokes meet to keep heavy letters open, and tested the spacing on real posters.',
     palette: ['#d4ff3a', '#0d0d0d'],
-    type: ['GRIT (hand-drawn, A–Z and 0–9)', 'Helvetica — Regular'],
+    type: ['GRIT (hand-drawn, A–Z and 0–9)', 'Inter Tight — supporting text'],
     deliverables: ['Alphabet A–Z', 'Numbers & punctuation', 'Specimen poster', 'Poster tests'],
   },
   {
@@ -103,8 +103,8 @@ export const projects = [
       'The logo had to be readable on a moving scooter and still work as a tiny app icon.',
     approach:
       'A single-line arrow drawn on a simple grid so it scales cleanly and tiles into a pattern. The bright blue was checked for contrast on both light and dark screens.',
-    palette: ['#0047ff', '#0a0a0f', '#f4f6ff', '#ff4d1f'],
-    type: ['Helvetica — Black', 'Helvetica — Medium'],
+    palette: ['#1f4bff', '#0a0a10', '#ff5b2e', '#f4f6ff'],
+    type: ['Inter Tight — 800 for UI headings, 500 for text'],
     deliverables: ['Logo', 'App screen mockups', 'Vehicle mockups', 'Icon set'],
   },
   {
@@ -121,8 +121,8 @@ export const projects = [
       'Give local food a modern look without falling back on clichés or going so minimal it feels generic.',
     approach:
       'I photographed old floor tiles around the city and redrew them as a repeatable pattern. The saffron-flower mark uses the same curves, so the logo and pattern match.',
-    palette: ['#c4532f', '#f3c46b', '#7a2a14', '#f6ead6'],
-    type: ['Instrument Serif — Italic', 'Helvetica — Regular'],
+    palette: ['#b8472a', '#e8a33a', '#5e2414', '#f7eedd'],
+    type: ['Instrument Serif Italic — name & dishes', 'Inter Tight — menu items'],
     deliverables: ['Logo', 'Menus', 'Pattern set', 'Signage'],
   },
   {
@@ -139,8 +139,8 @@ export const projects = [
       'Make a cover stand out with no photography — just shapes, colour and type.',
     approach:
       'Overlapping gradient circles form an abstract face, and the title is set so big it becomes part of the image. Inside, a simple grid keeps the sample spreads consistent.',
-    palette: ['#121212', '#ff2e88', '#ff8a00', '#3d5afe', '#00e0c6'],
-    type: ['Impact — Regular', 'Georgia — Italic'],
+    palette: ['#ff2e88', '#ff8a00', '#0f9c86', '#121212'],
+    type: ['Archivo Condensed — masthead', 'Instrument Serif Italic — cover lines', 'Inter Tight — body copy'],
     deliverables: ['Cover', 'Sample spreads', 'Illustration', 'Instagram teaser'],
   },
 ]
