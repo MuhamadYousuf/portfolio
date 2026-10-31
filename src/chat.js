@@ -77,6 +77,7 @@ export function initChat({ openProject, onOpen, onClose }) {
         signal: AbortSignal.timeout(35_000),
       })
       const data = await res.json().catch(() => ({}))
+      if (data.detail) console.warn('[Yusi]', data.detail)
       const reply = data.reply || 'Network ne dhoka de diya 😅 Dobara try karo ya email kar do. [[email]]'
       typing.classList.remove('is-typing')
       typing.innerHTML = render(reply)

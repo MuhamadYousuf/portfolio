@@ -106,6 +106,7 @@ export async function handleChat({ messages, ip = 'anon', apiKey = process.env.G
   // all inside one time budget so visitors never wait more than ~25s.
   const deadline = Date.now() + TOTAL_BUDGET_MS
   let sawQuota = false
+  const failures = []
   for (const model of models()) {
     if (deadline - Date.now() < 3000) break
     let r = await callGemini(model, apiKey, contents, { thinking: true, timeout: Math.min(MODEL_TIMEOUT_MS, deadline - Date.now()) })
@@ -115,18 +116,21 @@ export async function handleChat({ messages, ip = 'anon', apiKey = process.env.G
     }
     if (r.status !== 200) {
       console.error(`[chat] ${model} -> ${r.status}: ${r.message}`)
+      failures.push(`${model}: ${r.status} ${r.message}`.slice(0, 300))
       if (r.status === 429) sawQuota = true
-      if (r.status === 400 || r.status === 401 || r.status === 403) break
+      // A bad key won't work on any model; anything else is worth trying the next one.
+      if (r.status === 401 || r.status === 403 || /api key/i.test(r.message)) break
       continue
     }
     const candidate = r.data.candidates?.[0]
     const text = (candidate?.content?.parts || []).filter((p) => !p.thought).map((p) => p.text || '').join('').trim()
     if (!text) {
       console.error(`[chat] ${model} -> empty reply, finishReason=${candidate?.finishReason}`)
+      failures.push(`${model}: empty reply (${candidate?.finishReason})`)
       continue
     }
     return { status: 200, body: { reply: text, model } }
   }
-  if (sawQuota) return { status: 429, body: { error: 'quota', reply: 'Aaj ke liye mera chai quota khatam 🫖 — Yousuf ko seedha email karo, woh khud jawab dega. [[email]]' } }
-  return { status: 502, body: { error: 'upstream', reply: 'Google ke servers abhi thore busy hain 🙃 Ek minute baad dobara try karo ya email kar do. [[email]]' } }
+  if (sawQuota) return { status: 429, body: { error: 'quota', detail: failures, reply: 'Aaj ke liye mera chai quota khatam 🫖 — Yousuf ko seedha email karo, woh khud jawab dega. [[email]]' } }
+  return { status: 502, body: { error: 'upstream', detail: failures, reply: 'Google ke servers abhi thore busy hain 🙃 Ek minute baad dobara try karo ya email kar do. [[email]]' } }
 }
