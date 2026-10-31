@@ -7,7 +7,7 @@ const MAX_TURNS = 12
 const MAX_CHARS = 600
 
 // Model names change often, so try the configured one first, then stable fallbacks.
-const models = () => [process.env.GEMINI_MODEL, 'gemini-flash-latest', 'gemini-2.5-flash'].filter(Boolean)
+const models = () => [...new Set([process.env.GEMINI_MODEL, 'gemini-flash-latest', 'gemini-2.5-flash'].filter(Boolean))]
 
 const projectFacts = projects
   .map(
@@ -61,18 +61,28 @@ function sanitize(messages) {
     .map((m) => ({ role: m.role, parts: [{ text: m.text.slice(0, MAX_CHARS) }] }))
 }
 
-async function callGemini(model, apiKey, contents) {
-  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
-    body: JSON.stringify({
-      system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-      contents,
-      generationConfig: { temperature: 0.85, topP: 0.95, maxOutputTokens: 1024 },
-    }),
-  })
-  const data = await res.json().catch(() => ({}))
-  return { status: res.status, data }
+const MODEL_TIMEOUT_MS = 15_000
+const TOTAL_BUDGET_MS = 25_000
+
+// Gemini 3.x thinks at length by default, which makes chat painfully slow.
+// 2.5 models take a token budget; newer ones take a level.
+const thinkingFor = (model) => (/2\.5/.test(model) ? { thinkingBudget: 0 } : { thinkingLevel: 'low' })
+
+async function callGemini(model, apiKey, contents, { thinking, timeout }) {
+  const generationConfig = { temperature: 0.85, topP: 0.95, maxOutputTokens: 1024 }
+  if (thinking) generationConfig.thinkingConfig = thinkingFor(model)
+  try {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
+      body: JSON.stringify({ system_instruction: { parts: [{ text: SYSTEM_PROMPT }] }, contents, generationConfig }),
+      signal: AbortSignal.timeout(timeout),
+    })
+    const data = await res.json().catch(() => ({}))
+    return { status: res.status, data, message: data.error?.message || '' }
+  } catch (err) {
+    return { status: err.name === 'TimeoutError' ? 'timeout' : 'network', data: {}, message: err.message }
+  }
 }
 
 // Tiny per-IP limiter so one visitor can't burn the whole free quota.
@@ -92,14 +102,31 @@ export async function handleChat({ messages, ip = 'anon', apiKey = process.env.G
   const contents = sanitize(messages)
   if (!contents.length || contents[contents.length - 1].role !== 'user') return { status: 400, body: { error: 'bad_request' } }
 
+  // Overloaded (5xx), slow or rate-limited models fall through to the next one,
+  // all inside one time budget so visitors never wait more than ~25s.
+  const deadline = Date.now() + TOTAL_BUDGET_MS
+  let sawQuota = false
   for (const model of models()) {
-    const { status, data } = await callGemini(model, apiKey, contents)
-    if (status === 404) continue
-    if (status === 429) return { status: 429, body: { error: 'quota', reply: 'Aaj ke liye mera chai quota khatam 🫖 — Yousuf ko seedha email karo, woh khud jawab dega. [[email]]' } }
-    if (status !== 200) return { status: 502, body: { error: 'upstream', reply: 'Kuch gadbad ho gayi, pixels idhar udhar ho gaye 🙃 Dobara try karo ya email kar do. [[email]]' } }
-    const text = data.candidates?.[0]?.content?.parts?.map((p) => p.text || '').join('').trim()
-    if (!text) return { status: 200, body: { reply: 'Hmm, is pe main chup hi rahunga 🤐 Kuch aur poochho — design, projects, kuch bhi!' } }
+    if (deadline - Date.now() < 3000) break
+    let r = await callGemini(model, apiKey, contents, { thinking: true, timeout: Math.min(MODEL_TIMEOUT_MS, deadline - Date.now()) })
+    // Thinking settings differ between model generations; retry plain if this one rejects them.
+    if (r.status === 400 && /thinking/i.test(r.message)) {
+      r = await callGemini(model, apiKey, contents, { thinking: false, timeout: Math.min(MODEL_TIMEOUT_MS, deadline - Date.now()) })
+    }
+    if (r.status !== 200) {
+      console.error(`[chat] ${model} -> ${r.status}: ${r.message}`)
+      if (r.status === 429) sawQuota = true
+      if (r.status === 400 || r.status === 401 || r.status === 403) break
+      continue
+    }
+    const candidate = r.data.candidates?.[0]
+    const text = (candidate?.content?.parts || []).filter((p) => !p.thought).map((p) => p.text || '').join('').trim()
+    if (!text) {
+      console.error(`[chat] ${model} -> empty reply, finishReason=${candidate?.finishReason}`)
+      continue
+    }
     return { status: 200, body: { reply: text, model } }
   }
-  return { status: 502, body: { error: 'no_model', reply: 'Mera model abhi available nahi 😅 Please email Yousuf. [[email]]' } }
+  if (sawQuota) return { status: 429, body: { error: 'quota', reply: 'Aaj ke liye mera chai quota khatam 🫖 — Yousuf ko seedha email karo, woh khud jawab dega. [[email]]' } }
+  return { status: 502, body: { error: 'upstream', reply: 'Google ke servers abhi thore busy hain 🙃 Ek minute baad dobara try karo ya email kar do. [[email]]' } }
 }

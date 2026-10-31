@@ -74,6 +74,7 @@ export function initChat({ openProject, onOpen, onClose }) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: history }),
+        signal: AbortSignal.timeout(35_000),
       })
       const data = await res.json().catch(() => ({}))
       const reply = data.reply || 'Network ne dhoka de diya 😅 Dobara try karo ya email kar do. [[email]]'
