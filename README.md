@@ -1,6 +1,6 @@
-# Muhammad Yousuf — Graphic Design Portfolio
+# Muhammad Yousuf — Developer & Graphic Designer Portfolio
 
-A 3D, graphic-design-first portfolio built with **Vite**, **Three.js**, **GSAP** and **Lenis**.
+A 3D portfolio for a developer who also designs, built built with **Vite**, **Three.js**, **GSAP** and **Lenis**.
 
 - Draggable 3D ring of project posters around an iridescent liquid-chrome blob (click a poster to open it)
 - Kinetic display type, scroll-reactive marquees, custom cursor, film grain

@@ -106,4 +106,6 @@ export function initChat({ openProject, onOpen, onClose }) {
     if (window.innerWidth < 760) toggle(false)
     openProject(+btn.dataset.open)
   })
+
+  return { open: () => toggle(true) }
 }

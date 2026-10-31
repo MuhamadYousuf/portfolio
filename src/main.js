@@ -1,6 +1,7 @@
 import './style.css'
 import './sections.css'
 import './chat.css'
+import './dev.css'
 import * as THREE from 'three'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -193,7 +194,8 @@ window.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') step(-1)
 })
 
-initChat({ openProject: openModal })
+const chat = initChat({ openProject: openModal })
+document.getElementById('dev-chat').addEventListener('click', () => chat.open())
 
 // ---------- Cursor ----------
 const cursor = document.getElementById('cursor')
@@ -286,6 +288,8 @@ gsap.utils.toArray('.principle').forEach((el) => {
   gsap.from(el.querySelector('.principle__art'), { scale: 0.4, rotate: -45, opacity: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 85%' } })
 })
 gsap.from('.service', { x: -60, opacity: 0, duration: 1, stagger: 0.1, ease: 'expo.out', scrollTrigger: { trigger: '.services__list', start: 'top 80%' } })
+gsap.from('.dev__card', { y: 100, opacity: 0, duration: 1.1, stagger: 0.1, ease: 'expo.out', scrollTrigger: { trigger: '.dev__grid', start: 'top 85%' } })
+gsap.from('.dev__live', { y: 60, opacity: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: '.dev__live', start: 'top 90%' } })
 gsap.from('.craft__card', { y: 100, opacity: 0, duration: 1.1, stagger: 0.1, ease: 'expo.out', scrollTrigger: { trigger: '.craft__grid', start: 'top 85%' } })
 gsap.from('.tool__bar i', { scaleX: 0, duration: 1.6, stagger: 0.08, ease: 'expo.out', scrollTrigger: { trigger: '.tools', start: 'top 85%' } })
 gsap.from('.timeline__row', { y: 40, opacity: 0, duration: 1, stagger: 0.1, ease: 'expo.out', scrollTrigger: { trigger: '.timeline', start: 'top 85%' } })

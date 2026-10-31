@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Muhammad Yousuf — Graphic Designer</title>
-    <meta name="description" content="Muhammad Yousuf is a graphic designer crafting brand identities, packaging, posters, type and editorial work that refuses to be quiet." />
+    <title>Muhammad Yousuf — Developer &amp; Graphic Designer</title>
+    <meta name="description" content="Muhammad Yousuf is a developer and graphic designer in Karachi building websites, apps and AI tools — and designing the brands that go with them." />
     <meta name="theme-color" content="#0c0c0c" />
-    <meta property="og:title" content="Muhammad Yousuf — Graphic Designer" />
-    <meta property="og:description" content="Brand identity, packaging, posters, type and editorial design." />
+    <meta property="og:title" content="Muhammad Yousuf — Developer &amp; Graphic Designer" />
+    <meta property="og:description" content="Websites, apps, AI tools and brand design." />
     <meta property="og:image" content="/work/fieldwork.svg" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,6 +28,7 @@
     <header class="nav">
       <a href="#top" class="nav__logo">MY<sup>®</sup></a>
       <nav class="nav__links">
+        <a href="#dev">Dev</a>
         <a href="#work">Work</a>
         <a href="#principles">Principles</a>
         <a href="#craft">Craft</a>
@@ -46,11 +47,11 @@
         <h1 class="hero__title" data-fit="190">
           <span class="line"><span class="word">Muhammad</span></span>
           <span class="line"><span class="word serif">Yousuf</span><span class="word star">✶</span></span>
-          <span class="line"><span class="word outline">Graphic</span></span>
-          <span class="line"><span class="word">Designer</span></span>
+          <span class="line"><span class="word outline">Developer</span></span>
+          <span class="line"><span class="word">&amp; Designer</span></span>
         </h1>
         <div class="hero__bottom">
-          <p class="hero__intro">Brand identity, packaging, posters, type and editorial design that <em>refuses to be quiet</em>. <span class="hero__hint">Drag the ring — every frame is a project.</span></p>
+          <p class="hero__intro">I build websites, apps and AI tools — and design brands that <em>refuse to be quiet</em>. <span class="hero__hint">Drag the ring — every frame is a design project.</span></p>
           <div class="hero__specs" aria-hidden="true">
             <span>Grid — 12 col</span>
             <span>Type — Syne / Instrument</span>
@@ -62,14 +63,65 @@
 
       <div class="marquee" aria-hidden="true">
         <div class="marquee__track">
-          <span>Brand Identity</span><b>✶</b><span>Packaging</span><b>✶</b><span>Posters</span><b>✶</b><span>Type Design</span><b>✶</b><span>Editorial</span><b>✶</b><span>Art Direction</span><b>✶</b>
+          <span>Web Apps</span><b>✶</b><span>Mobile Apps</span><b>✶</b><span>AI Agents</span><b>✶</b><span>Brand Identity</span><b>✶</b><span>Packaging</span><b>✶</b><span>Posters</span><b>✶</b>
           <span>Brand Identity</span><b>✶</b><span>Packaging</span><b>✶</b><span>Posters</span><b>✶</b><span>Type Design</span><b>✶</b><span>Editorial</span><b>✶</b><span>Art Direction</span><b>✶</b>
         </div>
       </div>
 
-      <section class="work" id="work">
+      <section class="dev" id="dev">
         <div class="section-head">
           <span class="section-head__num">(01)</span>
+          <h2 class="section-head__title reveal">Built with <em>code</em></h2>
+          <p class="section-head__text reveal">Development is my main work — websites, apps and AI tools. Design is the bonus: everything I build also looks the part.</p>
+        </div>
+        <div class="dev__grid">
+          <article class="dev__card">
+            <pre class="dev__code" aria-hidden="true"><span class="k">const</span> order = <span class="k">await</span> db.orders.<span class="f">create</span>({
+  items, total, <span class="s">status: 'paid'</span>
+})</pre>
+            <h3>Full-stack Web</h3>
+            <p>Websites, dashboards, e-commerce and the backends behind them.</p>
+            <div class="dev__tags"><span>React</span><span>Next.js</span><span>Node.js</span><span>Python</span><span>PostgreSQL</span></div>
+          </article>
+          <article class="dev__card">
+            <pre class="dev__code" aria-hidden="true">gsap.<span class="f">to</span>(ring.rotation, {
+  y: Math.PI * <span class="n">2</span>,
+  ease: <span class="s">'expo.out'</span>
+})</pre>
+            <h3>Creative Frontend</h3>
+            <p>Animated, 3D and interactive sites that people remember — like this one.</p>
+            <div class="dev__tags"><span>Three.js</span><span>GSAP</span><span>WebGL</span><span>Vite</span></div>
+          </article>
+          <article class="dev__card">
+            <pre class="dev__code" aria-hidden="true"><span class="k">const</span> reply = <span class="k">await</span> yusi.<span class="f">chat</span>(
+  <span class="s">'kya haal hai?'</span>
+) <span class="c">// "Sab badhiya jaan!"</span></pre>
+            <h3>AI &amp; Automation</h3>
+            <p>Chatbots, AI agents and automations that save real hours every week.</p>
+            <div class="dev__tags"><span>Gemini</span><span>OpenAI</span><span>Agents</span><span>Automations</span></div>
+          </article>
+          <article class="dev__card">
+            <pre class="dev__code" aria-hidden="true">&lt;<span class="f">Screen</span> name=<span class="s">"Home"</span>&gt;
+  &lt;<span class="f">OrderButton</span> /&gt;
+&lt;/<span class="f">Screen</span>&gt;</pre>
+            <h3>Mobile Apps</h3>
+            <p>Android and iOS apps from one codebase, designed and built end to end.</p>
+            <div class="dev__tags"><span>React Native</span><span>Flutter</span><span>Firebase</span></div>
+          </article>
+        </div>
+        <div class="dev__live">
+          <div>
+            <span class="dev__badge"><i></i>Live example</span>
+            <h3>You’re looking at it.</h3>
+            <p>This portfolio is built from scratch with Vite, Three.js, GSAP and Lenis, deployed on Vercel — and Yusi, the AI assistant in the corner, runs on Gemini through a serverless function. Design and code, one person.</p>
+          </div>
+          <button type="button" class="dev__cta" id="dev-chat" data-cursor="Chat">Talk to Yusi ✶</button>
+        </div>
+      </section>
+
+      <section class="work" id="work">
+        <div class="section-head">
+          <span class="section-head__num">(02)</span>
           <h2 class="section-head__title reveal">Selected <em>work</em></h2>
           <p class="section-head__text reveal">A mix of client work and personal projects — logos, packaging, posters and layouts. Click any piece for the brief, palette and type.</p>
         </div>
@@ -84,7 +136,7 @@
 
       <section class="principles" id="principles">
         <div class="section-head">
-          <span class="section-head__num">(02)</span>
+          <span class="section-head__num">(03)</span>
           <h2 class="section-head__title reveal">Design <em>principles</em></h2>
           <p class="section-head__text reveal">Four rules I come back to on every brief, from a business card to a festival campaign.</p>
         </div>
@@ -126,32 +178,37 @@
 
       <section class="services" id="services">
         <div class="section-head">
-          <span class="section-head__num">(03)</span>
+          <span class="section-head__num">(04)</span>
           <h2 class="section-head__title reveal">What I <em>do</em></h2>
         </div>
         <ul class="services__list">
           <li class="service">
-            <span class="service__num">01</span><h3>Brand Identity</h3>
+            <span class="service__num">01</span><h3>Web &amp; App Development</h3>
+            <div class="service__body"><p>Websites, web apps, mobile apps and AI chatbots — designed and built by the same person.</p><div class="service__tags"><span>Websites</span><span>Web apps</span><span>Mobile apps</span><span>AI chatbots</span></div></div>
+            <span class="service__arrow">↗</span>
+          </li>
+          <li class="service">
+            <span class="service__num">02</span><h3>Brand Identity</h3>
             <div class="service__body"><p>Logos, visual systems and guidelines that scale from a favicon to a billboard.</p><div class="service__tags"><span>Logo &amp; wordmark</span><span>Visual language</span><span>Brand guidelines</span><span>Naming support</span></div></div>
             <span class="service__arrow">↗</span>
           </li>
           <li class="service">
-            <span class="service__num">02</span><h3>Packaging</h3>
+            <span class="service__num">03</span><h3>Packaging</h3>
             <div class="service__body"><p>Shelf-stopping structures and labels that make people pick it up.</p><div class="service__tags"><span>Dielines</span><span>Label systems</span><span>Foils &amp; finishes</span><span>Print-ready artwork</span></div></div>
             <span class="service__arrow">↗</span>
           </li>
           <li class="service">
-            <span class="service__num">03</span><h3>Posters &amp; Campaigns</h3>
+            <span class="service__num">04</span><h3>Posters &amp; Campaigns</h3>
             <div class="service__body"><p>Print and social campaigns built on one loud, repeatable idea.</p><div class="service__tags"><span>Key visuals</span><span>Poster series</span><span>Social templates</span><span>Flyers &amp; banners</span></div></div>
             <span class="service__arrow">↗</span>
           </li>
           <li class="service">
-            <span class="service__num">04</span><h3>Type &amp; Editorial</h3>
+            <span class="service__num">05</span><h3>Type &amp; Editorial</h3>
             <div class="service__body"><p>Hand lettering, brochures and magazine-style layouts that are easy to read.</p><div class="service__tags"><span>Custom lettering</span><span>Brochures</span><span>Magazine layout</span><span>Book covers</span></div></div>
             <span class="service__arrow">↗</span>
           </li>
           <li class="service">
-            <span class="service__num">05</span><h3>Social Media Design</h3>
+            <span class="service__num">06</span><h3>Social Media Design</h3>
             <div class="service__body"><p>Posts, stories and ad creatives that look like they belong to the same brand.</p><div class="service__tags"><span>Post templates</span><span>Story covers</span><span>Ad creatives</span><span>Simple animations</span></div></div>
             <span class="service__arrow">↗</span>
           </li>
@@ -160,7 +217,7 @@
 
       <section class="craft" id="craft">
         <div class="section-head">
-          <span class="section-head__num">(04)</span>
+          <span class="section-head__num">(05)</span>
           <h2 class="section-head__title reveal">The <em>craft</em></h2>
           <p class="section-head__text reveal">The unglamorous details that separate good design from finished design.</p>
         </div>
@@ -199,22 +256,22 @@
 
       <section class="about" id="about">
         <div class="section-head">
-          <span class="section-head__num">(05)</span>
+          <span class="section-head__num">(06)</span>
           <h2 class="section-head__title reveal">About <em>me</em></h2>
         </div>
         <div class="about__body">
           <p class="about__lead reveal">
-            I’m Muhammad Yousuf — a graphic designer who treats every brief like a poster: <em>one big idea</em>, set loud and clear. I work with small businesses, cafés, events and start-ups that want to stand out without a big-agency budget.
+            I’m Muhammad Yousuf — a developer who also designs. I treat every product like a poster: <em>one big idea</em>, built properly and set loud. I work with small businesses, cafés, events and start-ups that want to stand out without a big-agency budget.
           </p>
           <div class="about__stats">
             <div class="stat"><span class="stat__num" data-count="3">0</span><span class="stat__label">Years designing</span></div>
             <div class="stat"><span class="stat__num" data-count="25">0</span><span class="stat__label">Projects completed</span></div>
             <div class="stat"><span class="stat__num" data-count="12">0</span><span class="stat__label">Happy clients</span></div>
-            <div class="stat"><span class="stat__num" data-count="5">0</span><span class="stat__label">Services offered</span></div>
+            <div class="stat"><span class="stat__num" data-count="6">0</span><span class="stat__label">Services offered</span></div>
           </div>
           <div class="timeline">
             <h3 class="timeline__title">Experience</h3>
-            <div class="timeline__row"><span>2024 — Now</span><b>Freelance Graphic Designer</b><em>Logos, social posts, menus and packaging for local businesses</em></div>
+            <div class="timeline__row"><span>2024 — Now</span><b>Freelance Developer &amp; Designer</b><em>Websites, apps, AI chatbots and brand design for local businesses and start-ups</em></div>
             <div class="timeline__row"><span>2023 — 2024</span><b>Junior Designer, Small Agency</b><em>Social media creatives, print ads and brand assets</em></div>
             <div class="timeline__row"><span>2022 — 2023</span><b>Self-taught &amp; Online Courses</b><em>Typography, layout and Adobe tools through courses and personal projects</em></div>
           </div>
@@ -223,7 +280,7 @@
 
       <section class="process">
         <div class="section-head">
-          <span class="section-head__num">(06)</span>
+          <span class="section-head__num">(07)</span>
           <h2 class="section-head__title reveal">How it <em>works</em></h2>
         </div>
         <div class="process__steps">
@@ -242,13 +299,13 @@
       </div>
 
       <section class="contact" id="contact">
-        <span class="section-head__num">(07)</span>
+        <span class="section-head__num">(08)</span>
         <h2 class="contact__title" data-fit="220">
           <span class="line"><span class="word">Let’s make</span></span>
           <span class="line"><span class="word">something</span></span>
           <span class="line"><span class="word serif accent">loud.</span></span>
         </h2>
-        <p class="contact__text">Have a brand, a launch or a poster that needs to be impossible to ignore? Send a short brief and I’ll usually reply within a day.</p>
+        <p class="contact__text">Need a website, an app, an AI chatbot or a brand that’s impossible to ignore? Send a short brief and I’ll usually reply within a day.</p>
         <div class="contact__actions">
           <a class="contact__mail" id="mail-link" href="#" target="_blank" rel="noopener" data-cursor="Write">
             <span class="contact__mail-text">muhammadyousuf77998bp@gmail.com</span><span class="contact__mail-arrow">↗</span>
@@ -304,8 +361,8 @@
       <div class="chat__log" id="chat-log" data-lenis-prevent aria-live="polite"></div>
       <div class="chat__chips" id="chat-chips">
         <button type="button">Kya haal hai? 👋</button>
-        <button type="button">What do you design?</button>
-        <button type="button">Logo kitne ka banega?</button>
+        <button type="button">What do you build?</button>
+        <button type="button">Website kitne ki banegi?</button>
         <button type="button">Show me packaging work</button>
       </div>
       <form class="chat__form" id="chat-form" autocomplete="off">
