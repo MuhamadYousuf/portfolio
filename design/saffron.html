@@ -1,121 +1,69 @@
 <!doctype html>
 <html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
 <style>
-  :root { --terra: #b8472a; --saffron: #e8a33a; --brown: #5e2414; --cream: #f7eedd; }
-  .linen { background:
-      radial-gradient(80% 70% at 25% 15%, rgba(255,255,255,.35), transparent 60%),
-      repeating-linear-gradient(0deg, rgba(120,90,50,.07) 0 1px, transparent 1px 3px),
-      repeating-linear-gradient(90deg, rgba(120,90,50,.06) 0 1px, transparent 1px 3px),
-      #e6d7bf; }
-  .obj { position: absolute; background: var(--cream); color: var(--brown); box-shadow: 0 2px 3px rgba(60,30,10,.18), 0 22px 40px rgba(60,30,10,.22); }
-  .p-scallop { background: radial-gradient(circle at 50% 100%, var(--saffron) 0 34%, var(--terra) 35% 50%, var(--cream) 51%); background-size: 46px 46px; }
-  .p-quarter { background: radial-gradient(circle at 0 0, var(--terra) 0 49%, transparent 50%), radial-gradient(circle at 100% 100%, var(--saffron) 0 49%, transparent 50%), var(--cream); background-size: 50px 50px; }
-  .p-diamond { background: conic-gradient(from 45deg, var(--terra) 25%, var(--cream) 0 50%, var(--terra) 0 75%, var(--cream) 0); background-size: 44px 44px; }
-  .p-dots { background: radial-gradient(circle, var(--saffron) 0 4px, transparent 5px), repeating-linear-gradient(90deg, var(--brown) 0 22px, #6e2c19 22px 44px); background-size: 22px 22px, auto; }
+  :root { --terra: #b4432a; --saffron: #e6a23c; --clay: #5a2213; --cream: #f6ecd9; }
   .serif { font-family: 'Instrument Serif', serif; }
-  .item { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-top: 9px; }
-  .item b { font: 600 12px 'Inter Tight'; }
-  .item i { font: italic 13px 'Instrument Serif'; opacity: .75; display: block; }
-  .item span { font: 500 11px "DM Mono"; padding-top: 2px; }
-  .label { font-size: 12px; letter-spacing: .14em; color: var(--brown); }
+  .label { font-size: 11px; letter-spacing: .14em; color: var(--clay); }
+  .tile p { font: 500 9px 'DM Mono'; letter-spacing: .14em; margin-top: 8px; color: var(--clay); }
 </style></head>
 <body>
+<svg width="0" height="0" style="position:absolute"><defs id="defs"></defs></svg>
 
-<!-- COVER -->
-<div class="board cover grain linen" data-out="saffron/cover">
-  <div class="abs mono label" style="top:40px;left:44px;z-index:5">SAFFRON &amp; SALT — RESTAURANT IDENTITY</div>
-  <div class="abs mono label" style="top:40px;right:44px;z-index:5">KARACHI</div>
-
-  <!-- menu -->
-  <div class="obj paper" style="left:76px;top:190px;width:380px;height:640px;transform:rotate(-1deg)">
-    <div class="p-scallop" style="height:46px"></div>
-    <div style="position:absolute;left:148px;top:20px;width:84px;height:84px;border-radius:50%;background:var(--cream);display:grid;place-items:center;box-shadow:0 0 0 3px var(--cream),0 0 0 4px var(--terra)"><svg class="flower" width="58" height="58"></svg></div>
-    <div style="text-align:center;margin-top:84px">
-      <div class="serif" style="font-size:46px;font-style:italic;line-height:1">Saffron <span style="font-style:normal;color:var(--terra)">&amp;</span> Salt</div>
-      <div class="mono" style="font-size:9px;letter-spacing:.32em;margin-top:8px">MODERN DESI KITCHEN</div>
-    </div>
-    <div style="padding:0 34px;margin-top:22px">
-      <div class="mono" style="font-size:9px;letter-spacing:.24em;color:var(--terra);border-bottom:1px solid rgba(94,36,20,.25);padding-bottom:6px">SMALL PLATES</div>
-      <div class="item"><div><b>Chaat papri</b><i>tamarind, mint, pomegranate</i></div><span>690</span></div>
-      <div class="item"><div><b>Charred corn</b><i>chilli lime butter, chaat masala</i></div><span>540</span></div>
-      <div class="item"><div><b>Seekh kebab</b><i>smoked yoghurt, onion salad</i></div><span>980</span></div>
-      <div class="mono" style="font-size:9px;letter-spacing:.24em;color:var(--terra);border-bottom:1px solid rgba(94,36,20,.25);padding-bottom:6px;margin-top:20px">FROM THE HANDI</div>
-      <div class="item"><div><b>Saffron chicken pulao</b><i>fried onions, raita</i></div><span>1,450</span></div>
-      <div class="item"><div><b>Lamb nihari</b><i>bone marrow, ginger, lemon</i></div><span>1,890</span></div>
-      <div class="item"><div><b>Daal makhani</b><i>burnt butter, garlic naan</i></div><span>790</span></div>
-    </div>
-    <div class="mono" style="position:absolute;left:0;right:0;bottom:20px;text-align:center;font-size:8px;letter-spacing:.24em;opacity:.6">PRICES IN RUPEES · INCLUSIVE OF TAX</div>
-  </div>
-
-  <!-- business cards -->
-  <div class="obj p-quarter" style="left:478px;top:200px;width:270px;height:156px;transform:rotate(9deg);border-radius:3px"></div>
-  <div class="obj paper" style="left:470px;top:300px;width:270px;height:156px;transform:rotate(3deg);border-radius:3px;padding:18px 20px">
-    <svg class="flower" width="34" height="34"></svg>
-    <div class="serif" style="font-size:24px;font-style:italic;margin-top:10px">Saffron &amp; Salt</div>
-    <div class="mono" style="font-size:8px;letter-spacing:.18em;margin-top:18px;line-height:1.7">RESERVATIONS · DAILY 12—12<br>SAFFRONANDSALT.PK</div>
-  </div>
-
-  <!-- bowl -->
-  <div class="abs" style="left:520px;top:600px;width:200px;height:200px;border-radius:50%;background:rgba(60,30,10,.28);filter:blur(16px);transform:translate(10px,18px)"></div>
-  <div class="abs" style="left:520px;top:600px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#d9673f,#a63b20 60%,#7c2a15 100%);box-shadow:inset 0 0 0 10px #f2e6d2, inset 0 0 0 12px rgba(0,0,0,.1)"></div>
-  <div class="abs" style="left:550px;top:630px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle at 45% 40%,#f7e7c7,#e8d2a9)"></div>
-  <svg class="abs" id="threads" style="left:555px;top:635px" width="120" height="120"></svg>
-
-  <div class="abs mono label" style="bottom:40px;left:44px;z-index:5">MENU · CARDS · PATTERN</div>
-  <div class="abs mono label" style="bottom:40px;right:44px;z-index:5">01 / 02</div>
-</div>
-
-<!-- PATTERN BOARD -->
-<div class="board wide grain" data-out="saffron/board" style="background:var(--cream);color:var(--brown)">
-  <div class="abs mono label" style="top:34px;left:44px">SAFFRON &amp; SALT — MARK &amp; PATTERN LIBRARY</div>
+<!-- MARK & PATTERN BOARD -->
+<div class="board wide grain" data-out="saffron/board" style="background:var(--cream)">
+  <div class="abs mono label" style="top:34px;left:44px">SAFFRON &amp; SALT — MARK &amp; PATTERN SYSTEM</div>
   <div class="abs mono label" style="top:34px;right:44px">02 / 02</div>
 
-  <div class="abs" style="left:44px;top:84px;width:400px;height:430px;background:#efe2c9;display:grid;place-items:center">
-    <div style="text-align:center">
-      <svg class="flower" data-guides="1" width="190" height="190"></svg>
-      <div class="serif" style="font-size:54px;font-style:italic;margin-top:18px;line-height:1">Saffron <span style="font-style:normal;color:var(--terra)">&amp;</span> Salt</div>
-      <div class="mono" style="font-size:10px;letter-spacing:.32em;margin-top:12px">MODERN DESI KITCHEN</div>
+  <div class="abs paper" style="left:44px;top:80px;width:400px;height:470px;background:var(--terra);color:var(--cream);display:grid;place-items:center;overflow:hidden">
+    <svg class="abs" style="inset:0;opacity:.14" width="400" height="470"><rect width="400" height="470" fill="url(#k-line-cream)"/></svg>
+    <div style="position:relative;text-align:center">
+      <div style="width:190px;height:190px;margin:0 auto;border-radius:50%;background:var(--cream);display:grid;place-items:center;box-shadow:0 0 0 6px var(--terra),0 0 0 8px var(--cream)"><svg class="flower" width="140" height="140"></svg></div>
+      <div class="serif" style="font-size:56px;font-style:italic;margin-top:30px;line-height:1">Saffron <span style="font-style:normal;color:var(--saffron)">&amp;</span> Salt</div>
+      <div class="mono" style="font-size:10px;letter-spacing:.34em;margin-top:14px">MODERN DESI KITCHEN</div>
     </div>
   </div>
-  <p class="mono" style="position:absolute;left:44px;top:526px;font-size:10px;letter-spacing:.12em;opacity:.7">8 PETALS FROM ONE ARC — THE SAME CURVE BUILDS EVERY TILE</p>
+  <p class="abs mono" style="left:44px;top:562px;font-size:9px;letter-spacing:.14em;color:var(--clay);opacity:.75">EIGHT PETALS, EIGHT POINTS — THE MARK AND THE TILE SHARE ONE GEOMETRY</p>
 
-  <div class="abs" style="left:476px;top:84px;display:grid;grid-template-columns:repeat(4,160px);gap:12px">
-    <div><div class="p-scallop" style="height:200px"></div><p class="mono" style="font-size:9px;letter-spacing:.14em;margin-top:8px">01 SCALLOP</p></div>
-    <div><div class="p-quarter" style="height:200px"></div><p class="mono" style="font-size:9px;letter-spacing:.14em;margin-top:8px">02 QUARTER</p></div>
-    <div><div class="p-diamond" style="height:200px"></div><p class="mono" style="font-size:9px;letter-spacing:.14em;margin-top:8px">03 SADDAR</p></div>
-    <div><div class="p-dots" style="height:200px"></div><p class="mono" style="font-size:9px;letter-spacing:.14em;margin-top:8px">04 THREAD</p></div>
+  <div class="abs" style="left:476px;top:80px;display:grid;grid-template-columns:repeat(4,160px);gap:12px">
+    <div class="tile"><svg width="160" height="200"><rect width="160" height="200" fill="url(#k-classic)"/></svg><p>01 KHATAM</p></div>
+    <div class="tile"><svg width="160" height="200"><rect width="160" height="200" fill="url(#k-dark)"/></svg><p>02 NIGHT</p></div>
+    <div class="tile"><svg width="160" height="200"><rect width="160" height="200" fill="url(#k-reverse)"/></svg><p>03 SAFFRON</p></div>
+    <div class="tile"><svg width="160" height="200"><rect width="160" height="200" fill="url(#k-line)"/></svg><p>04 LINE</p></div>
   </div>
 
-  <div class="abs" style="left:476px;top:340px;width:676px;height:174px;display:grid;grid-template-columns:repeat(4,1fr)">
-    <div style="background:var(--terra);color:var(--cream);padding:14px" class="mono"><p style="font-size:10px;letter-spacing:.12em">TERRACOTTA<br><span style="opacity:.7">#B8472A</span></p></div>
-    <div style="background:var(--saffron);padding:14px" class="mono"><p style="font-size:10px;letter-spacing:.12em">SAFFRON<br><span style="opacity:.7">#E8A33A</span></p></div>
-    <div style="background:var(--brown);color:var(--cream);padding:14px" class="mono"><p style="font-size:10px;letter-spacing:.12em">CLAY<br><span style="opacity:.7">#5E2414</span></p></div>
-    <div style="background:#efe2c9;padding:14px" class="mono"><p style="font-size:10px;letter-spacing:.12em">GHEE<br><span style="opacity:.7">#F7EEDD</span></p></div>
+  <div class="abs" style="left:476px;top:328px;width:676px;height:222px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr">
+    <div style="background:var(--terra);color:var(--cream);padding:14px" class="mono"><p style="font-size:10px;letter-spacing:.12em">TERRACOTTA<br><span style="opacity:.7">#B4432A</span></p></div>
+    <div style="background:var(--saffron);color:var(--clay);padding:14px" class="mono"><p style="font-size:10px;letter-spacing:.12em">SAFFRON<br><span style="opacity:.7">#E6A23C</span></p></div>
+    <div style="background:var(--clay);color:var(--cream);padding:14px" class="mono"><p style="font-size:10px;letter-spacing:.12em">CLAY<br><span style="opacity:.7">#5A2213</span></p></div>
+    <div style="background:#ece0c8;color:var(--clay);padding:14px" class="mono"><p style="font-size:10px;letter-spacing:.12em">GHEE<br><span style="opacity:.7">#F6ECD9</span></p></div>
   </div>
 
-  <div class="abs" style="left:44px;right:44px;bottom:40px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;align-items:end;border-top:1px solid rgba(94,36,20,.2);padding-top:20px">
-    <div><div class="serif" style="font-size:60px;font-style:italic;line-height:1">Aa &amp;</div><p class="mono" style="font-size:10px;letter-spacing:.12em;opacity:.65;margin-top:6px">INSTRUMENT SERIF — NAME &amp; DISHES</p></div>
-    <div><div style="font:600 46px/1.1 'Inter Tight'">Aa</div><p class="mono" style="font-size:10px;letter-spacing:.12em;opacity:.65;margin-top:6px">INTER TIGHT — MENU ITEMS</p></div>
-    <p class="serif" style="font-size:22px;font-style:italic;line-height:1.3">Patterns redrawn from old floor tiles around Saddar, Karachi.</p>
+  <div class="abs" style="left:44px;right:44px;bottom:36px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;align-items:end;border-top:1px solid rgba(90,34,19,.2);padding-top:18px;color:var(--clay)">
+    <div><div class="serif" style="font-size:58px;font-style:italic;line-height:1">Aa &amp;</div><p class="mono" style="font-size:9px;letter-spacing:.12em;opacity:.7;margin-top:6px">INSTRUMENT SERIF — NAME &amp; DISHES</p></div>
+    <div><div style="font:600 44px/1.1 'Inter Tight'">Aa 1,450</div><p class="mono" style="font-size:9px;letter-spacing:.12em;opacity:.7;margin-top:6px">INTER TIGHT + DM MONO — MENU</p></div>
+    <p class="serif" style="font-size:21px;font-style:italic;line-height:1.3">Khatam stars from the tiled floors of old Karachi, redrawn for plates, menus and walls.</p>
   </div>
 </div>
 
 <script>
-  // Saffron flower: 8 petals cut from one arc, alternating clay and saffron.
+  // Khatam: 8-point stars meeting tip to tip on a 120-unit grid, a small star in each gap.
+  const star = (R) => Array.from({ length: 16 }, (_, k) => { const a = (k * Math.PI) / 8, rad = k % 2 ? R * 0.7654 : R; return `${(rad * Math.cos(a)).toFixed(2)},${(rad * Math.sin(a)).toFixed(2)}` }).join(' ')
+  const corners = (attrs) => [[0, 0], [120, 0], [0, 120], [120, 120]].map(([x, y]) => `<polygon points="${star(58)}" transform="translate(${x} ${y})" ${attrs}/>`).join('')
+  const pat = (id, bg, starAttrs, small, scale = 0.62) => `<pattern id="${id}" width="120" height="120" patternUnits="userSpaceOnUse" patternTransform="scale(${scale})"><rect width="120" height="120" fill="${bg}"/>${corners(starAttrs)}<polygon points="${star(17)}" transform="translate(60 60)" fill="${small}"/></pattern>`
+  document.getElementById('defs').innerHTML =
+    pat('k-classic', '#e6a23c', 'fill="#b4432a" stroke="#f6ecd9" stroke-width="4"', '#f6ecd9') +
+    pat('k-dark', '#5a2213', 'fill="none" stroke="#e6a23c" stroke-width="3"', '#e6a23c') +
+    pat('k-reverse', '#b4432a', 'fill="#e6a23c" stroke="#5a2213" stroke-width="4"', '#5a2213') +
+    pat('k-line', '#f6ecd9', 'fill="none" stroke="#b4432a" stroke-width="3"', '#b4432a') +
+    pat('k-line-cream', 'transparent', 'fill="none" stroke="#f6ecd9" stroke-width="3"', '#f6ecd9', 0.8)
+
   document.querySelectorAll('svg.flower').forEach((svg) => {
-    const petal = 'M50 50 C40 34 41 16 50 4 C59 16 60 34 50 50 Z'
+    const petal = 'M50 50 C41 35 42 17 50 5 C58 17 59 35 50 50 Z'
     let g = ''
-    for (let i = 0; i < 8; i++) g += `<path d="${petal}" transform="rotate(${i * 45} 50 50)" fill="${i % 2 ? '#e8a33a' : '#b8472a'}"/>`
-    const guides = svg.dataset.guides ? `<circle cx="50" cy="50" r="46" fill="none" stroke="#b8472a" stroke-width=".3" stroke-dasharray="1.5 1.5"/><circle cx="50" cy="50" r="23" fill="none" stroke="#b8472a" stroke-width=".3" stroke-dasharray="1.5 1.5"/>` : ''
+    for (let i = 0; i < 8; i++) g += `<path d="${petal}" transform="rotate(${i * 45} 50 50)" fill="${i % 2 ? '#e6a23c' : '#b4432a'}"/>`
+    for (let i = 0; i < 16; i++) { const a = (i * Math.PI) / 8; g += `<circle cx="${50 + Math.cos(a) * 47}" cy="${50 + Math.sin(a) * 47}" r="1.6" fill="#b4432a"/>` }
     svg.setAttribute('viewBox', '0 0 100 100')
-    svg.innerHTML = guides + g + '<circle cx="50" cy="50" r="7" fill="#f7eedd"/><circle cx="50" cy="50" r="4" fill="#5e2414"/>'
+    svg.innerHTML = g + '<circle cx="50" cy="50" r="8" fill="#f6ecd9"/><circle cx="50" cy="50" r="4.5" fill="#5a2213"/>'
   })
-  // A pinch of saffron threads in the bowl.
-  let t = ''
-  for (let i = 0; i < 18; i++) {
-    const a = Math.random() * Math.PI * 2, r = 6 + Math.random() * 30, x = 60 + Math.cos(a) * r, y = 60 + Math.sin(a) * r, b = Math.random() * Math.PI
-    t += `<path d="M${x} ${y} q${Math.cos(b) * 5 + 3} ${Math.sin(b) * 5} ${Math.cos(b) * 12} ${Math.sin(b) * 12}" stroke="${i % 3 ? "#a3121a" : "#c8281c"}" stroke-width="2.2" fill="none" stroke-linecap="round"/>`
-  }
-  document.getElementById('threads').innerHTML = t
 </script>
 </body></html>

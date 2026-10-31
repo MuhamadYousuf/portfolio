@@ -1,0 +1,57 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../base.css">
+<style>
+  body { background: #333; padding: 20px; display: flex; gap: 20px; }
+  .tex { position: relative; width: 1024px; height: 1536px; overflow: hidden; background: var(--bg); color: var(--ink); flex: none; }
+  .seal { position: absolute; left: 0; right: 0; top: 0; height: 150px; border-bottom: 2px solid var(--line); }
+  .wm { font-family: 'Fraunces'; font-variation-settings: 'opsz' 144; font-weight: 330; letter-spacing: .2em; margin-right: -.2em; }
+  .mac { position: relative; }
+  .mac::before { content: ''; position: absolute; left: 16%; right: 16%; top: .14em; height: .042em; background: currentColor; }
+  .mono { font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .16em; }
+  table { border-collapse: collapse; width: 100%; }
+  td { border-top: 2px solid var(--line); padding: 16px 0; font: 500 24px 'DM Mono'; text-transform: uppercase; letter-spacing: .1em; vertical-align: top; }
+  td:first-child { opacity: .55; width: 34%; }
+  .dot { display: inline-block; width: 22px; height: 22px; border-radius: 50%; border: 2.5px solid currentColor; margin-right: 8px; vertical-align: -3px; }
+  .dot.on { background: var(--accent); border-color: var(--accent); }
+  .stamp { position: absolute; font-family: 'DM Mono'; color: var(--accent); border: 4px solid var(--accent); border-radius: 10px; padding: 12px 18px; transform: rotate(-6deg); opacity: .88;
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/><feComponentTransfer><feFuncA type='discrete' tableValues='1 1 1 0 1 1 1 1'/></feComponentTransfer></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+</style></head>
+<body>
+<div class="tex" data-tex="koen-black" style="--bg:#191512;--ink:#efe5d3;--accent:#e4572e;--line:rgba(239,229,211,.16)"></div>
+<div class="tex" data-tex="koen-cream" style="--bg:#ece2d0;--ink:#2b1f16;--accent:#b9431f;--line:rgba(43,31,22,.18)"></div>
+<div class="tex" data-tex="koen-clay" style="--bg:#b6421f;--ink:#f7eadb;--accent:#f7eadb;--line:rgba(247,234,219,.25)"></div>
+
+<script>
+  const bags = {
+    'koen-black': { rise: 0.38, origin: 'Guji, Ethiopia', producer: 'Smallholders, Hambela', process: 'Washed', variety: 'Heirloom', alt: '2,100 m', notes: 'Apricot · Jasmine · Black tea', roast: 1, no: '04', date: '12 · 10 · 26' },
+    'koen-cream': { rise: 0.62, origin: 'Huila, Colombia', producer: 'Finca La Esperanza', process: 'Natural', variety: 'Caturra', alt: '1,750 m', notes: 'Panela · Red apple · Cocoa', roast: 2, no: '02', date: '09 · 10 · 26' },
+    'koen-clay': { rise: 0.9, origin: 'Nyeri, Kenya', producer: 'Gikanda Factory', process: 'Washed', variety: 'SL28 · SL34', alt: '1,800 m', notes: 'Blackcurrant · Grapefruit', roast: 1, no: '07', date: '15 · 10 · 26' },
+  }
+  const sun = (rise) => {
+    const cy = 80 + 50 - rise * 100
+    return `<svg viewBox="0 -40 160 160" width="330" height="330"><defs><clipPath id="c${rise}"><rect x="0" y="-40" width="160" height="120"/><rect x="0" y="86" width="160" height="7"/><rect x="0" y="99" width="160" height="5"/><rect x="0" y="110" width="160" height="3"/></clipPath></defs>
+      <circle cx="80" cy="${cy}" r="50" fill="var(--accent)" clip-path="url(#c${rise})"/><rect x="6" y="79" width="148" height="1.6" fill="var(--accent)"/></svg>`
+  }
+  document.querySelectorAll('.tex').forEach((el) => {
+    const b = bags[el.dataset.tex]
+    el.innerHTML = `
+      <div class="seal"><div class="mono" style="position:absolute;left:70px;bottom:26px;font-size:18px;opacity:.5">Tear here ⟶</div><div class="mono" style="position:absolute;right:70px;bottom:26px;font-size:18px;opacity:.5">Reseal after use</div></div>
+      <div class="mono" style="position:absolute;top:196px;left:0;right:0;text-align:center;font-size:20px;opacity:.7">Kōen Coffee Roasters — Karachi</div>
+      <div style="position:absolute;top:226px;left:0;right:0;display:flex;justify-content:center">${sun(b.rise)}</div>
+      <div class="wm" style="position:absolute;top:540px;left:0;right:0;text-align:center;font-size:150px;line-height:1">K<span class="mac">O</span>EN</div>
+      <div style="position:absolute;top:722px;left:0;right:0;text-align:center;font:italic 330 70px Fraunces">${b.origin}</div>
+      <div style="position:absolute;top:850px;left:110px;right:110px">
+        <table>
+          <tr><td>Producer</td><td>${b.producer}</td></tr>
+          <tr><td>Process</td><td>${b.process}</td></tr>
+          <tr><td>Variety</td><td>${b.variety}</td></tr>
+          <tr><td>Altitude</td><td>${b.alt}</td></tr>
+          <tr><td>Notes</td><td>${b.notes}</td></tr>
+          <tr><td>Roast</td><td>${[1, 2, 3, 4, 5].map((i) => `<span class="dot ${i <= b.roast ? 'on' : ''}"></span>`).join('')}</td></tr>
+        </table>
+      </div>
+      <div class="stamp" style="left:110px;bottom:120px"><div style="font-size:15px;letter-spacing:.2em">ROASTED ON</div><div style="font-size:34px;letter-spacing:.06em;margin-top:2px">${b.date}</div></div>
+      <div class="mono" style="position:absolute;right:110px;bottom:132px;text-align:right;font-size:22px;line-height:1.6">250 G · 8.8 OZ<br>Whole bean · Nº ${b.no}</div>`
+  })
+</script>
+</body></html>

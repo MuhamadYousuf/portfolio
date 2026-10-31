@@ -1,0 +1,39 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../base.css">
+<style>
+  body { background: #333; padding: 20px; display: flex; flex-direction: column; gap: 20px; }
+  .tex { position: relative; overflow: hidden; flex: none; color: #3a2733; }
+  .word { font-family: 'Fraunces'; font-variation-settings: 'opsz' 72, 'SOFT' 100; font-weight: 360; }
+  .mono { font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .2em; }
+</style></head>
+<body>
+<!-- Tube wrap: u runs around the tube (front panel centred at 25%), v runs from cap (bottom) to crimp (top) -->
+<div class="tex" data-tex="helio-tube" style="width:1400px;height:1520px;background:#fbf6f2">
+  <div style="position:absolute;left:0;right:0;top:0;height:90px;background:linear-gradient(90deg,#ffd9c4,#f8bcd8,#c9c4ff,#f8bcd8,#ffd9c4)"></div>
+  <div style="position:absolute;left:350px;top:230px;transform:translateX(-50%);text-align:center;width:560px">
+    <svg width="78" height="78" viewBox="0 0 96 96"><path d="M14 92 V48 A34 34 0 0 1 82 48 V92" fill="none" stroke="#3a2733" stroke-width="5"/><circle cx="48" cy="54" r="15" fill="#ff8a4c"/></svg>
+    <div class="word" style="font-size:170px;line-height:1;margin-top:10px">helio</div>
+    <div class="mono" style="font-size:22px;margin-top:22px">Daily mineral sunscreen</div>
+    <div style="width:80px;height:2px;background:#3a2733;opacity:.3;margin:44px auto 34px"></div>
+    <div class="word" style="font-size:132px;font-style:italic;line-height:1">SPF 50</div>
+    <div class="mono" style="font-size:18px;margin-top:26px;opacity:.75">Broad spectrum · No white cast</div>
+    <div class="mono" style="font-size:18px;margin-top:300px;opacity:.6">50 ml · 1.7 fl oz</div>
+  </div>
+  <div style="position:absolute;left:1050px;top:260px;transform:translateX(-50%);width:420px;font:400 17px/1.55 'Inter Tight';opacity:.7">
+    <p class="mono" style="font-size:16px;margin-bottom:14px;opacity:1">How to use</p>
+    <p>Apply generously 15 minutes before sun. Reapply every two hours and after swimming.</p>
+    <p class="mono" style="font-size:16px;margin:30px 0 14px;opacity:1">Ingredients</p>
+    <p style="font-size:14px">Zinc oxide 18%, aloe leaf juice, caprylic/capric triglyceride, squalane, niacinamide, glycerin, tocopherol, sunflower seed oil.</p>
+    <div style="margin-top:60px;width:200px;height:80px;background:repeating-linear-gradient(90deg,#3a2733 0 3px,transparent 3px 5px,#3a2733 5px 6px,transparent 6px 10px)"></div>
+  </div>
+</div>
+
+<!-- Serum bottle label (wraps the front third of the bottle) -->
+<div class="tex" data-tex="helio-serum" style="width:1024px;height:620px;background:#fbf1ea">
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+    <div class="word" style="font-size:150px;line-height:1">helio</div>
+    <div class="mono" style="font-size:24px;margin-top:22px">Golden hour serum</div>
+    <div style="display:flex;gap:30px;margin-top:40px" class="mono"><span style="font-size:20px;opacity:.7">Vitamin C 15%</span><span style="font-size:20px;opacity:.7">30 ml</span></div>
+  </div>
+</div>
+</body></html>

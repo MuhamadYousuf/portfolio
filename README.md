@@ -34,7 +34,7 @@ Import this repo in Vercel. It detects Vite automatically:
 
 ## Project artwork
 
-Each project's images are designed as HTML/CSS boards in `design/<slug>.html` (real fonts, lighting, paper grain) and rendered to `public/work/<slug>/cover.webp` (4:5, used in the 3D ring and cards) and `board.webp` (16:10, shown in the case study). After editing a board:
+Kōen, Helio and Saffron & Salt are real-time 3D product renders (Three.js, physically based materials, projected window/leaf light) in `design/3d/`, with their label artwork designed as HTML in `design/tex/` and mapped onto the models. The other projects are HTML/CSS boards in `design/<slug>.html`. Everything is rendered to `public/work/<slug>/cover.webp` (4:5, used in the 3D ring and cards) and `board.webp` (16:10, shown in the case study). After editing a board:
 
 ```bash
 npm run render:work            # all projects

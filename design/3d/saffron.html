@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../base.css">
+<script type="importmap">{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }</script>
+<style>
+  canvas { display: block; width: 100%; height: 100%; }
+  .label { position: absolute; z-index: 10; font: 500 12px 'DM Mono'; letter-spacing: .14em; color: #f2e4cc; text-transform: uppercase; text-shadow: 0 1px 6px rgba(0,0,0,.4); }
+</style></head>
+<body>
+<div class="board cover grain" data-out="saffron/cover">
+  <canvas id="c"></canvas>
+  <div class="label" style="top:40px;left:44px">Saffron &amp; Salt — Restaurant identity</div>
+  <div class="label" style="top:40px;right:44px">Karachi</div>
+  <div class="label" style="bottom:40px;left:44px">Menu · Plates · Cards</div>
+  <div class="label" style="bottom:40px;right:44px">01 / 02</div>
+</div>
+<script type="module">
+  import { THREE, stage, done } from './stage.js'
+  import { buildSaffron } from './saffron-scene.js'
+  const W = 1200, H = 1500
+  const { renderer, scene } = stage(document.getElementById('c'), { width: W, height: H, exposure: 0.95, env: 0.2, tone: THREE.ACESFilmicToneMapping })
+  renderer.shadowMap.type = THREE.VSMShadowMap
+  const camera = new THREE.PerspectiveCamera(32, W / H, 0.05, 10)
+  camera.position.set(0.0, 1.12, 0.17)
+  camera.lookAt(0.0, 0, 0.01)
+  await buildSaffron(scene)
+  done(renderer, scene, camera)
+</script>
+</body></html>

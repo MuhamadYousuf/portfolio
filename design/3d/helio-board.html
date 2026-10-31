@@ -1,0 +1,40 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../base.css">
+<script type="importmap">{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }</script>
+<style>
+  canvas { display: block; width: 100%; height: 100%; }
+  .panel { position: absolute; z-index: 5; left: 0; top: 0; bottom: 0; width: 430px; background: #fbf1ec; color: #3a2733; padding: 84px 44px 0; }
+  .word { font-family: 'Fraunces'; font-variation-settings: 'opsz' 72, 'SOFT' 100; font-weight: 360; }
+  .chip { height: 46px; border-radius: 4px; display: flex; align-items: end; padding: 6px 9px; font: 500 9px 'DM Mono'; letter-spacing: .1em; }
+</style></head>
+<body>
+<div class="board wide grain" data-out="helio/board">
+  <canvas id="c"></canvas>
+  <div class="panel">
+    <svg width="64" height="64" viewBox="0 0 96 96"><path d="M14 92 V48 A34 34 0 0 1 82 48 V92" fill="none" stroke="#3a2733" stroke-width="4.5"/><circle cx="48" cy="54" r="15" fill="#ff8a4c"/></svg>
+    <div class="word" style="font-size:96px;line-height:1;margin-top:8px">helio</div>
+    <div class="mono" style="font-size:10px;letter-spacing:.4em;margin-top:10px">DAILY SUN CARE</div>
+    <p class="word" style="font-size:22px;line-height:1.3;font-style:italic;margin-top:34px;max-width:330px">The arch is a window at golden hour. It frames every product, post and page.</p>
+    <p class="mono" style="font-size:9px;letter-spacing:.14em;opacity:.6;margin-top:30px">PALETTE — SAMPLED FROM SUNRISE</p>
+    <div style="display:grid;gap:6px;margin-top:10px">
+      <div class="chip" style="background:linear-gradient(90deg,#ffd9c4,#f8bcd8)">05:42</div>
+      <div class="chip" style="background:linear-gradient(90deg,#f8bcd8,#c9c4ff)">06:10</div>
+      <div class="chip" style="background:linear-gradient(90deg,#ff9a5c,#ffd18a)">06:31</div>
+      <div class="chip" style="background:#3a2733;color:#fbf1ec">PLUM #3A2733</div>
+    </div>
+    <p class="mono" style="position:absolute;left:44px;bottom:36px;font-size:9px;letter-spacing:.14em;opacity:.6;line-height:1.7">FRAUNCES SOFT — WORDMARK<br>DM MONO — PRODUCT INFO</p>
+  </div>
+  <div class="mono" style="position:absolute;z-index:10;top:36px;right:44px;font-size:11px;letter-spacing:.14em;color:#3a2733">02 / 02</div>
+</div>
+<script type="module">
+  import { THREE, stage, done } from './stage.js'
+  import { buildHelio } from './helio-scene.js'
+  const W = 1800, H = 1125
+  const { renderer, scene } = stage(document.getElementById('c'), { width: W, height: H, exposure: 1.0, env: 0.3, tone: THREE.ACESFilmicToneMapping })
+  const camera = new THREE.PerspectiveCamera(24, W / H, 0.05, 10)
+  camera.position.set(-0.17, 0.2, 1.2)
+  camera.lookAt(-0.17, 0.13, 0)
+  await buildHelio(scene)
+  done(renderer, scene, camera)
+</script>
+</body></html>

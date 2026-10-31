@@ -30,9 +30,9 @@ export const projects = [
     challenge:
       'Most specialty coffee bags look alike: kraft paper, a drawn coffee bean and a wall of tasting notes. Kōen wanted something simpler that stands out on a shelf.',
     approach:
-      'A matte black bag with one bright orange sun, placed at a different height for each origin. Tasting notes were cut down to a single italic line.',
-    palette: ['#1a1613', '#e4572e', '#b9431f', '#f1e8d8'],
-    type: ['Fraunces — wordmark & origins', 'Inter Tight — details'],
+      'A matte black bag with one bright orange sun, placed at a different height for each origin. Origin data sits in a clean mono table, finished with a hand-stamped roast date.',
+    palette: ['#191512', '#e4572e', '#b6421f', '#ece2d0'],
+    type: ['Fraunces — wordmark & origins', 'DM Mono — roast data'],
     deliverables: ['Bag design', 'Wordmark', 'Labels', 'Café menu board'],
   },
   {
@@ -116,14 +116,14 @@ export const projects = [
     role: 'Logo, menus, signage',
     duration: '4 weeks',
     summary:
-      'Branding for a modern desi restaurant in Karachi. Tile patterns inspired by old city floors meet a warm italic serif and a saffron-flower mark.',
+      'Branding for a modern desi restaurant in Karachi. Khatam star tiles from old city floors meet a warm italic serif and a saffron-flower mark.',
     challenge:
       'Give local food a modern look without falling back on clichés or going so minimal it feels generic.',
     approach:
-      'I photographed old floor tiles around the city and redrew them as a repeatable pattern. The saffron-flower mark uses the same curves, so the logo and pattern match.',
-    palette: ['#b8472a', '#e8a33a', '#5e2414', '#f7eedd'],
+      'I redrew the eight-point khatam star from old floor tiles as a modular pattern for menus, plates and walls. The saffron flower has eight petals to match the eight points, so mark and pattern share one geometry.',
+    palette: ['#b4432a', '#e6a23c', '#5a2213', '#f6ecd9'],
     type: ['Instrument Serif Italic — name & dishes', 'Inter Tight — menu items'],
-    deliverables: ['Logo', 'Menus', 'Pattern set', 'Signage'],
+    deliverables: ['Logo', 'Menus', 'Pattern system', 'Tableware'],
   },
   {
     slug: 'echo',

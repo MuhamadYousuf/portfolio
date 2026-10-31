@@ -1,0 +1,55 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../base.css">
+<script type="importmap">{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }</script>
+<style>
+  canvas { display: block; width: 100%; height: 100%; }
+  .label { position: absolute; z-index: 10; font: 500 12px 'DM Mono'; letter-spacing: .14em; color: #3b2a1d; text-transform: uppercase; }
+</style></head>
+<body>
+<div class="board cover grain" data-out="koen/cover">
+  <canvas id="c"></canvas>
+  <div class="label" style="top:40px;left:44px">Kōen Coffee Roasters — Packaging</div>
+  <div class="label" style="top:40px;right:44px">2026</div>
+  <div class="label" style="bottom:40px;left:44px">Sunrise system · 250 g pouch</div>
+  <div class="label" style="bottom:40px;right:44px">01 / 02</div>
+</div>
+
+<script type="module">
+  import { THREE, stage, loadTex, noiseCanvas, normalFromHeight, sweep, goboCanvas, done } from './stage.js'
+  import { pouch, cup, beans } from './props.js'
+
+  const W = 1200, H = 1500
+  const { renderer, scene } = stage(document.getElementById('c'), { width: W, height: H, exposure: 1.0, env: 0.18, tone: THREE.ACESFilmicToneMapping })
+  const camera = new THREE.PerspectiveCamera(21.5, W / H, 0.05, 10)
+  camera.position.set(0.03, 0.25, 1.27)
+  camera.lookAt(0.0, 0.112, 0)
+
+  // ---------- Studio ----------
+  const plaster = noiseCanvas(512, { scale: 6, octaves: 5, seed: 11 })
+  const room = sweep({ width: 4, depth: 1.4, height: 1.5, radius: 0.22, color: '#ead6ba', roughness: 0.95, normalMap: normalFromHeight(plaster, 1.5), normalScale: 0.25 })
+  room.position.z = -0.24
+  room.material.normalMap.repeat.set(6, 6)
+  scene.add(room)
+
+  // ---------- Lights ----------
+  const sun = new THREE.SpotLight('#ffdcb2', 11, 0, 0.42, 0.5, 0)
+  sun.position.set(-0.75, 0.95, 0.75)
+  sun.target.position.set(0.02, 0.1, -0.12)
+  sun.map = goboCanvas('blinds')
+  sun.castShadow = true
+  sun.shadow.mapSize.set(4096, 4096)
+  sun.shadow.bias = -0.00008
+  sun.shadow.normalBias = 0.0015
+  sun.shadow.camera.near = 0.3; sun.shadow.camera.far = 3
+  scene.add(sun, sun.target)
+  scene.add(new THREE.HemisphereLight('#fff1e2', '#9c7a5c', 0.42))
+
+  const [black, cream] = await Promise.all([loadTex('../tex/out/koen-black.png'), loadTex('../tex/out/koen-cream.png')])
+  const a = pouch(black, '#191512'); a.position.set(-0.035, a.position.y, 0.03); a.rotation.y = 0.2
+  const b = pouch(cream, '#ece2d0'); b.position.set(0.118, b.position.y, -0.075); b.rotation.y = -0.42
+  const c = cup(); c.scale.setScalar(0.84); c.position.set(-0.13, 0, 0.2); c.rotation.y = 0.5
+  scene.add(a, b, c, beans(46, { x0: 0.0, x1: 0.19, z0: 0.11, z1: 0.23 }, 9), beans(9, { x0: -0.03, x1: 0.05, z0: 0.25, z1: 0.3 }, 3))
+
+  done(renderer, scene, camera)
+</script>
+</body></html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../base.css">
+<style>
+  :root { --terra: #b4432a; --saffron: #e6a23c; --clay: #5a2213; --cream: #f6ecd9; }
+  body { background: #333; padding: 20px; display: flex; flex-wrap: wrap; gap: 20px; }
+  .tex { position: relative; overflow: hidden; flex: none; color: var(--clay); background: var(--cream); }
+  .serif { font-family: 'Instrument Serif', serif; }
+  .mono { font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .22em; }
+  .item { display: grid; grid-template-columns: 1fr auto; gap: 0 20px; margin-top: 26px; }
+  .item b { font: 600 27px 'Inter Tight'; letter-spacing: -.005em; }
+  .item i { grid-column: 1; font: italic 27px 'Instrument Serif'; opacity: .75; }
+  .item span { grid-row: 1; grid-column: 2; font: 500 24px 'DM Mono'; }
+  h3 { font: 500 20px 'DM Mono'; letter-spacing: .3em; color: var(--terra); text-transform: uppercase; display: flex; align-items: center; gap: 18px; margin-top: 56px; }
+  h3::after { content: ''; flex: 1; height: 2px; background: currentColor; opacity: .35; }
+</style></head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <!-- Khatam: 8-point stars on a square lattice, outlined in cream, saffron crosses between -->
+    <pattern id="khatam" width="120" height="120" patternUnits="userSpaceOnUse">
+      <rect width="120" height="120" fill="#e6a23c"/>
+      <g fill="#b4432a" stroke="#f6ecd9" stroke-width="4">
+        <polygon class="star big" transform="translate(0 0)"/><polygon class="star big" transform="translate(120 0)"/>
+        <polygon class="star big" transform="translate(0 120)"/><polygon class="star big" transform="translate(120 120)"/>
+      </g>
+      <polygon class="star small" transform="translate(60 60)" fill="#f6ecd9"/>
+    </pattern>
+    <pattern id="khatam-dark" width="120" height="120" patternUnits="userSpaceOnUse">
+      <rect width="120" height="120" fill="#5a2213"/>
+      <g fill="none" stroke="#e6a23c" stroke-width="3">
+        <polygon class="star big" transform="translate(0 0)"/><polygon class="star big" transform="translate(120 0)"/>
+        <polygon class="star big" transform="translate(0 120)"/><polygon class="star big" transform="translate(120 120)"/>
+      </g>
+      <polygon class="star small" transform="translate(60 60)" fill="#e6a23c"/>
+    </pattern>
+  </defs>
+</svg>
+
+<!-- Menu card -->
+<div class="tex" data-tex="saffron-menu" style="width:1000px;height:1540px">
+  <svg style="position:absolute;left:0;top:0" width="1000" height="250"><rect width="1000" height="250" fill="url(#khatam)"/></svg>
+  <div style="position:absolute;left:390px;top:140px;width:220px;height:220px;border-radius:50%;background:var(--cream);box-shadow:0 0 0 8px var(--cream),0 0 0 10px var(--terra);display:grid;place-items:center"><svg class="flower" width="150" height="150"></svg></div>
+  <div style="position:absolute;top:400px;left:0;right:0;text-align:center">
+    <div class="serif" style="font-size:112px;font-style:italic;line-height:1">Saffron <span style="font-style:normal;color:var(--terra)">&amp;</span> Salt</div>
+    <div class="mono" style="font-size:20px;margin-top:20px">Modern desi kitchen · Karachi</div>
+  </div>
+  <div style="position:absolute;left:96px;right:96px;top:560px">
+    <h3>Small plates</h3>
+    <div class="item"><b>Chaat papri</b><span>690</span><i>tamarind, mint, pomegranate, sev</i></div>
+    <div class="item"><b>Charred corn</b><span>540</span><i>chilli-lime butter, chaat masala</i></div>
+    <div class="item"><b>Seekh kebab</b><span>980</span><i>smoked yoghurt, pickled onion</i></div>
+    <h3>From the handi</h3>
+    <div class="item"><b>Saffron chicken pulao</b><span>1,450</span><i>fried shallots, cucumber raita</i></div>
+    <div class="item"><b>Lamb nihari</b><span>1,890</span><i>bone marrow, ginger, lemon, naan</i></div>
+    <div class="item"><b>Daal makhani</b><span>790</span><i>burnt butter, garlic naan</i></div>
+  </div>
+  <div class="mono" style="position:absolute;left:0;right:0;bottom:84px;text-align:center;font-size:16px;opacity:.6">Prices in rupees · inclusive of tax</div>
+  <svg style="position:absolute;left:0;bottom:0" width="1000" height="40"><rect width="1000" height="40" fill="url(#khatam)"/></svg>
+</div>
+
+<!-- Business card front / back -->
+<div class="tex" data-tex="saffron-card-front" style="width:1050px;height:600px;padding:64px 70px">
+  <svg class="flower" width="110" height="110"></svg>
+  <div class="serif" style="font-size:78px;font-style:italic;margin-top:24px;line-height:1">Saffron <span style="font-style:normal;color:var(--terra)">&amp;</span> Salt</div>
+  <div class="mono" style="font-size:19px;margin-top:56px;line-height:1.8">Reservations · daily 12—12<br>saffronandsalt.pk</div>
+  <svg style="position:absolute;right:0;top:0" width="60" height="600"><rect width="60" height="600" fill="url(#khatam)"/></svg>
+</div>
+<div class="tex" data-tex="saffron-card-back" style="width:1050px;height:600px">
+  <svg width="1050" height="600"><rect width="1050" height="600" fill="url(#khatam-dark)"/></svg>
+</div>
+
+<!-- Plate decal: cream glaze with a khatam rim -->
+<div class="tex" data-tex="saffron-plate" style="width:1024px;height:1024px;background:transparent">
+  <svg width="1024" height="1024" viewBox="0 0 1024 1024">
+    <defs><mask id="rim"><circle cx="512" cy="512" r="508" fill="#fff"/><circle cx="512" cy="512" r="400" fill="#000"/></mask>
+    <radialGradient id="glaze" cx=".45" cy=".42" r=".7"><stop offset="0" stop-color="#fbf4e6"/><stop offset="1" stop-color="#efe2c8"/></radialGradient></defs>
+    <circle cx="512" cy="512" r="510" fill="url(#glaze)"/>
+    <rect width="1024" height="1024" fill="url(#khatam)" mask="url(#rim)"/>
+    <circle cx="512" cy="512" r="400" fill="none" stroke="#b4432a" stroke-width="6"/>
+    <circle cx="512" cy="512" r="384" fill="none" stroke="#b4432a" stroke-width="2"/>
+    <circle cx="512" cy="512" r="506" fill="none" stroke="#b4432a" stroke-width="8"/>
+  </svg>
+</div>
+
+<script>
+  // 8-point stars (two overlapping squares) that meet tip to tip on a 120-unit grid.
+  const star = (R) => Array.from({ length: 16 }, (_, k) => {
+    const a = (k * Math.PI) / 8, rad = k % 2 ? R * 0.7654 : R
+    return `${(rad * Math.cos(a)).toFixed(2)},${(rad * Math.sin(a)).toFixed(2)}`
+  }).join(' ')
+  document.querySelectorAll('polygon.star.big').forEach((p) => p.setAttribute('points', star(58)))
+  document.querySelectorAll('polygon.star.small').forEach((p) => p.setAttribute('points', star(17)))
+
+  // Saffron-flower monogram: eight petals around a ring of seeds.
+  document.querySelectorAll('svg.flower').forEach((svg) => {
+    const petal = 'M50 50 C41 35 42 17 50 5 C58 17 59 35 50 50 Z'
+    let g = ''
+    for (let i = 0; i < 8; i++) g += `<path d="${petal}" transform="rotate(${i * 45} 50 50)" fill="${i % 2 ? '#e6a23c' : '#b4432a'}"/>`
+    for (let i = 0; i < 16; i++) { const a = (i * Math.PI) / 8; g += `<circle cx="${50 + Math.cos(a) * 47}" cy="${50 + Math.sin(a) * 47}" r="1.6" fill="#b4432a"/>` }
+    svg.setAttribute('viewBox', '0 0 100 100')
+    svg.innerHTML = g + '<circle cx="50" cy="50" r="8" fill="#f6ecd9"/><circle cx="50" cy="50" r="4.5" fill="#5a2213"/>'
+  })
+</script>
+</body></html>
