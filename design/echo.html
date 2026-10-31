@@ -1,0 +1,77 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  :root { --mag: #ff2e88; --orange: #ff8a00; --ink: #121212; --paper: #f2efe8; }
+  .desk { background: radial-gradient(70% 60% at 45% 40%, #3b3936 0%, #1f1e1c 60%, #141413 100%); }
+  .zine { position: absolute; overflow: hidden; color: var(--ink); box-shadow: 0 4px 6px rgba(0,0,0,.35), 0 40px 70px rgba(0,0,0,.55); }
+  .zine::after { content: ''; position: absolute; inset: 0; z-index: 30; pointer-events: none; background: linear-gradient(90deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0) 4%, rgba(255,255,255,.06) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,.08) 100%); }
+  .mast { font-family: 'Archivo'; font-variation-settings: 'wdth' 62; font-weight: 900; line-height: .78; letter-spacing: -.03em; }
+  .halftone { position: absolute; inset: 0; background: radial-gradient(circle, rgba(18,18,18,.55) 0 1.4px, transparent 1.8px); background-size: 7px 7px; mix-blend-mode: multiply; }
+  .label { font-size: 12px; letter-spacing: .14em; }
+</style></head>
+<body>
+
+<!-- COVER -->
+<div class="board cover grain desk" data-out="echo/cover">
+  <div class="abs mono label" style="top:40px;left:44px;color:rgba(255,255,255,.55)">ECHO — MUSIC ZINE</div>
+  <div class="abs mono label" style="top:40px;right:44px;color:rgba(255,255,255,.55)">ISSUE 07</div>
+
+  <!-- back issue -->
+  <div class="zine paper" style="left:300px;top:150px;width:440px;height:590px;background:#0f9c86;transform:rotate(7deg)">
+    <div class="abs mast" style="left:22px;top:24px;font-size:210px;color:#f2efe8">ECHO</div>
+    <div class="abs" style="left:120px;top:250px;width:300px;height:300px;border-radius:50%;background:#ffd23f;mix-blend-mode:multiply"></div>
+    <div class="abs halftone" style="opacity:.5"></div>
+  </div>
+
+  <!-- front issue -->
+  <div class="zine paper" style="left:76px;top:200px;width:470px;height:630px;background:var(--paper);transform:rotate(-5deg)">
+    <div class="abs mast" style="left:20px;right:20px;top:26px;font-size:232px;text-align:center">ECHO</div>
+    <div class="abs mono" style="left:24px;right:24px;top:212px;display:flex;justify-content:space-between;font-size:10px;letter-spacing:.14em"><span>ISSUE 07</span><span>THE NOISE ISSUE</span><span>AUTUMN 2026</span></div>
+    <div class="abs" style="left:24px;right:24px;top:232px;height:2px;background:var(--ink)"></div>
+    <div class="abs" style="left:46px;top:252px;width:270px;height:270px;border-radius:50%;background:var(--mag);mix-blend-mode:multiply"></div>
+    <div class="abs" style="left:166px;top:280px;width:250px;height:250px;border-radius:50%;background:var(--orange);mix-blend-mode:multiply"></div>
+    <div class="abs halftone" style="top:240px;-webkit-mask:radial-gradient(70% 60% at 55% 45%,#000 40%,transparent 75%)"></div>
+    <div class="abs" style="left:96px;top:290px;height:210px;display:flex;align-items:center;gap:8px"><i style="width:11px;height:38px;background:#121212;border-radius:1px"></i><i style="width:11px;height:70px;background:#121212;border-radius:1px"></i><i style="width:11px;height:118px;background:#121212;border-radius:1px"></i><i style="width:11px;height:160px;background:#121212;border-radius:1px"></i><i style="width:11px;height:200px;background:#121212;border-radius:1px"></i><i style="width:11px;height:150px;background:#121212;border-radius:1px"></i><i style="width:11px;height:104px;background:#121212;border-radius:1px"></i><i style="width:11px;height:176px;background:#121212;border-radius:1px"></i><i style="width:11px;height:132px;background:#121212;border-radius:1px"></i><i style="width:11px;height:84px;background:#121212;border-radius:1px"></i><i style="width:11px;height:52px;background:#121212;border-radius:1px"></i><i style="width:11px;height:30px;background:#121212;border-radius:1px"></i></div>
+    <div class="abs serif" style="left:24px;bottom:66px;font-size:34px;font-style:italic;line-height:1;max-width:260px">14 artists who refuse to turn it down</div>
+    <div class="abs" style="left:24px;bottom:30px;font:700 11px 'Inter Tight';letter-spacing:.06em;text-transform:uppercase">Plus: building a studio in a Karachi rooftop</div>
+    <div class="abs" style="right:24px;bottom:28px;width:70px;height:46px;background:#fff;padding:5px">
+      <div style="height:100%;background:repeating-linear-gradient(90deg,#121212 0 2px,transparent 2px 3px,#121212 3px 4px,transparent 4px 7px,#121212 7px 10px,transparent 10px 11px)"></div>
+    </div>
+  </div>
+
+  <div class="abs mono label" style="bottom:40px;left:44px;color:rgba(255,255,255,.55)">COVER · RISO 2-COLOUR + BLACK</div>
+  <div class="abs mono label" style="bottom:40px;right:44px;color:rgba(255,255,255,.55)">01 / 02</div>
+</div>
+
+<!-- SPREAD -->
+<div class="board wide grain" data-out="echo/board" style="background:#d9d5cc">
+  <div class="abs mono label" style="top:30px;left:44px;color:#121212">ECHO — FEATURE SPREAD, PP. 12—13</div>
+  <div class="abs mono label" style="top:30px;right:44px;color:#121212">02 / 02</div>
+  <div class="abs" style="left:60px;top:90px;width:1080px;height:600px;background:rgba(0,0,0,.35);filter:blur(24px);transform:translateY(16px)"></div>
+
+  <!-- left page -->
+  <div class="abs paper" style="left:60px;top:76px;width:540px;height:620px;background:var(--ink);overflow:hidden;color:var(--paper)">
+    <div class="abs" style="left:-60px;top:120px;width:420px;height:420px;border-radius:50%;background:var(--mag)"></div>
+    <div class="abs" style="left:170px;top:60px;width:380px;height:380px;border-radius:50%;background:var(--orange);mix-blend-mode:screen"></div>
+    <div class="abs halftone" style="background:radial-gradient(circle, rgba(18,18,18,.7) 0 1.6px, transparent 2px);background-size:8px 8px;mix-blend-mode:normal"></div>
+    <p class="abs serif" style="left:36px;right:60px;bottom:70px;font-size:44px;font-style:italic;line-height:1.02">“Quiet is a choice. We just didn’t make it.”</p>
+    <p class="abs mono" style="left:36px;bottom:36px;font-size:9px;letter-spacing:.16em">PHOTO-ILLUSTRATION · ECHO STUDIO</p>
+    <div class="abs" style="right:0;top:0;bottom:0;width:70px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.45))"></div>
+  </div>
+
+  <!-- right page -->
+  <div class="abs paper" style="left:600px;top:76px;width:540px;height:620px;background:var(--paper);overflow:hidden;color:var(--ink)">
+    <div class="abs" style="left:0;top:0;bottom:0;width:60px;background:linear-gradient(90deg,rgba(0,0,0,.22),transparent)"></div>
+    <div class="abs mono" style="left:44px;top:30px;font-size:9px;letter-spacing:.16em">FEATURE — THE NOISE ISSUE</div>
+    <div class="abs mast" style="left:40px;top:58px;font-size:148px">TURN<br>IT UP</div>
+    <p class="abs serif" style="left:44px;right:44px;top:296px;font-size:22px;font-style:italic;line-height:1.2">Fourteen artists, three cities and one rule: if the neighbours aren’t complaining, it isn’t finished.</p>
+    <div class="abs" style="left:44px;right:44px;top:374px;columns:3;column-gap:20px;font:400 9.5px/1.5 'Inter Tight';text-align:left">
+      <p><b style="font:900 34px/0.8 Archivo;font-variation-settings:'wdth' 62;float:left;margin:2px 6px 0 0;color:var(--mag)">T</b>he rooftop studio sits four floors above a tyre shop. By nine at night the street is still loud, so the band plays louder. Nobody planned it that way; the room simply decided.</p>
+      <p style="margin-top:8px">Most of the gear is borrowed. The speakers came from a wedding hall that closed, the desk from a radio station that went digital. What is new is the attitude: record everything, keep the mistakes, release on Friday.</p>
+      <p style="margin-top:8px">“People tell us to clean it up,” says the drummer, laughing over the generator. “But the noise is the point. It sounds like where we live.”</p>
+      <p style="margin-top:8px">Across the city, the same idea is spreading — small rooms, cheap mics and a stubborn refusal to sound polite.</p>
+    </div>
+    <div class="abs mono" style="left:44px;right:44px;bottom:24px;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.14em"><span>ECHO 07</span><span>13</span></div>
+  </div>
+</div>
+</body></html>

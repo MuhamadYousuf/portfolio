@@ -1,0 +1,91 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  :root { --lime: #d4ff3a; --ink: #0d0d0d; }
+  .studio { background: radial-gradient(90% 70% at 50% 35%, #3a3a37 0%, #1d1d1b 60%, #111110 100%); }
+  .sheet { background: var(--lime); color: var(--ink); }
+  .g { font-family: 'Anton', sans-serif; line-height: .86; }
+  .clip { position: absolute; z-index: 40; }
+  .label { font-size: 12px; letter-spacing: .14em; }
+</style></head>
+<body>
+
+<!-- COVER -->
+<div class="board cover grain studio" data-out="grit/cover">
+  <div class="abs mono label" style="top:40px;left:44px;color:rgba(255,255,255,.55)">GRIT — LETTERING SPECIMEN</div>
+  <div class="abs mono label" style="top:40px;right:44px;color:rgba(255,255,255,.55)">2025</div>
+
+  <div class="abs" style="left:110px;top:150px;width:580px;height:770px;background:rgba(0,0,0,.6);filter:blur(30px);transform:translate(16px,26px) rotate(-2deg)"></div>
+  <div class="abs sheet paper" style="left:110px;top:140px;width:580px;height:770px;transform:rotate(-2deg);overflow:hidden">
+    <div class="abs mono" style="top:26px;left:28px;right:28px;display:flex;justify-content:space-between;font-size:10px;letter-spacing:.16em"><span>GRIT / DISPLAY</span><span>SPECIMEN NO. 01</span></div>
+    <div class="abs" style="top:58px;left:28px;right:28px;height:1px;background:var(--ink)"></div>
+    <div class="abs g" style="top:74px;left:20px;font-size:330px;letter-spacing:-.01em">GRIT</div>
+    <div class="abs" style="top:72px;left:28px;right:28px;border-top:1px dashed rgba(0,0,0,.45)"></div>
+    <div class="abs" style="top:357px;left:28px;right:28px;border-top:1px dashed rgba(0,0,0,.45)"></div>
+    <div class="abs mono" style="top:76px;right:28px;font-size:8px;letter-spacing:.14em">CAP 700</div>
+    <div class="abs mono" style="top:362px;right:28px;font-size:8px;letter-spacing:.14em">BASELINE 0</div>
+
+    <div class="abs" style="top:392px;left:28px;right:28px;height:1px;background:var(--ink)"></div>
+    <div class="abs g" style="top:410px;left:28px;font-size:50px;line-height:1.02;letter-spacing:.02em">ABCDEFGHIJKLM<br>NOPQRSTUVWXYZ<br>0123456789&amp;!?</div>
+    <div class="abs" style="top:582px;left:28px;width:250px;height:160px;background:var(--ink);color:var(--lime)">
+      <div class="g" style="position:absolute;left:18px;top:6px;font-size:150px">Rr</div>
+      <div class="mono" style="position:absolute;right:14px;bottom:12px;font-size:9px;letter-spacing:.14em;text-align:right">INK TRAP<br>DETAIL</div>
+    </div>
+    <div class="abs" style="top:582px;left:300px;right:28px;font:500 13px/1.45 'Inter Tight'">
+      <p style="font-weight:700;margin-bottom:6px">Drawn for posters that need to shout.</p>
+      <p style="opacity:.8">Tall, tight and heavy. Small notches where strokes meet keep counters open when the letters get big and black.</p>
+      <p class="mono" style="font-size:9px;letter-spacing:.14em;margin-top:14px">A–Z · 0–9 · PUNCTUATION<br>DRAWN IN ILLUSTRATOR</p>
+    </div>
+  </div>
+  <!-- binder clip -->
+  <svg class="clip" style="left:345px;top:112px;transform:rotate(-2deg)" width="110" height="90" viewBox="0 0 110 90">
+    <defs><linearGradient id="m" x1="0" x2="1"><stop offset="0" stop-color="#1a1a1a"/><stop offset=".5" stop-color="#4a4a4a"/><stop offset="1" stop-color="#151515"/></linearGradient>
+    <linearGradient id="w" x1="0" x2="1"><stop offset="0" stop-color="#8a8a8a"/><stop offset=".5" stop-color="#f2f2f2"/><stop offset="1" stop-color="#7a7a7a"/></linearGradient></defs>
+    <path d="M30 12 Q55 -6 80 12" stroke="url(#w)" stroke-width="4" fill="none"/>
+    <path d="M20 30 L30 12 M90 30 L80 12" stroke="url(#w)" stroke-width="4"/>
+    <path d="M12 26 H98 V58 Q98 64 92 64 H18 Q12 64 12 58 Z" fill="url(#m)"/><rect x="12" y="26" width="86" height="7" fill="#5a5a5a"/>
+    <ellipse cx="55" cy="66" rx="44" ry="6" fill="#000" opacity=".4" filter="blur(3px)"/>
+  </svg>
+
+  <div class="abs mono label" style="bottom:40px;left:44px;color:rgba(255,255,255,.55)">PERSONAL PROJECT · RISO PRINT, A2</div>
+  <div class="abs mono label" style="bottom:40px;right:44px;color:rgba(255,255,255,.55)">01 / 02</div>
+</div>
+
+<!-- GLYPH BOARD -->
+<div class="board wide grain" data-out="grit/board" style="background:#151514;color:#f0efe9">
+  <div class="abs mono label" style="top:34px;left:44px;opacity:.6">GRIT — CONSTRUCTION &amp; GLYPHS</div>
+  <div class="abs mono label" style="top:34px;right:44px;opacity:.6">02 / 02</div>
+
+  <!-- construction -->
+  <div class="abs" style="left:44px;top:84px;width:470px;height:620px;background:var(--lime);color:var(--ink);overflow:hidden">
+    <div class="abs" style="inset:0;background-image:linear-gradient(rgba(0,0,0,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.12) 1px,transparent 1px);background-size:23.5px 23.5px"></div>
+    <div class="abs g" style="left:70px;top:40px;font-size:470px">a</div>
+    <div class="abs" style="left:0;right:0;top:18px;border-top:1px solid #e0261b"></div>
+    <div class="abs" style="left:0;right:0;top:446px;border-top:1px solid #e0261b"></div>
+    <div class="abs" style="left:0;right:0;top:93px;border-top:1px dashed #e0261b"></div>
+    <div class="abs mono" style="right:12px;top:24px;font-size:9px;color:#e0261b;letter-spacing:.12em">CAP</div>
+    <div class="abs mono" style="right:12px;top:99px;font-size:9px;color:#e0261b;letter-spacing:.12em">X-HEIGHT</div>
+    <div class="abs mono" style="right:12px;top:428px;font-size:9px;color:#e0261b;letter-spacing:.12em">BASELINE</div>
+    <div class="abs" style="left:170px;top:354px;width:58px;height:58px;border:1.5px solid #e0261b;border-radius:50%"></div>
+    <div class="abs mono" style="left:236px;top:374px;font-size:9px;color:#e0261b;letter-spacing:.1em;background:var(--lime);padding:2px 4px">INK TRAP</div>
+    <div class="abs mono" style="left:16px;bottom:14px;font-size:10px;letter-spacing:.12em">‘a’ ON A 20-UNIT GRID</div>
+  </div>
+
+  <!-- glyph grid -->
+  <div class="abs" id="glyphs" style="left:540px;top:84px;width:616px;display:grid;grid-template-columns:repeat(8,1fr);gap:1px;background:rgba(240,239,233,.14);border:1px solid rgba(240,239,233,.14)"></div>
+
+  <div class="abs" style="left:540px;top:556px;width:616px;border-top:1px solid rgba(240,239,233,.14);padding-top:18px">
+    <div class="g" style="font-size:82px;color:var(--lime);line-height:.9">LOUD ON PURPOSE</div>
+    <p class="mono" style="font-size:10px;letter-spacing:.12em;opacity:.55;margin-top:12px">ONE WEIGHT · DISPLAY ONLY · BEST ABOVE 48 PT</p>
+  </div>
+</div>
+
+<script>
+  const glyphs = 'ABCDEFGHIJKLMNOPQRSTUVWX26&?'.split('').concat(['!', '#', '@', '%'])
+  document.getElementById('glyphs').innerHTML = glyphs
+    .map((c, i) => `<div style="aspect-ratio:1;background:${i === 17 ? '#d4ff3a' : '#151514'};color:${i === 17 ? '#0d0d0d' : '#f0efe9'};display:grid;place-items:center;position:relative">
+      <span class="g" style="font-size:46px">${c}</span>
+      <span class="mono" style="position:absolute;left:5px;top:4px;font-size:7px;opacity:.45">${c.charCodeAt(0).toString(16).toUpperCase().padStart(4, '0')}</span></div>`)
+    .join('')
+</script>
+</body></html>

@@ -26,7 +26,8 @@ const GROUPS = {
   echo: 'type',
 }
 
-const img = (slug) => `/work/${slug}.svg`
+const img = (slug) => `/work/${slug}/cover.webp`
+const board = (slug) => `/work/${slug}/board.webp`
 const pad = (n) => String(n + 1).padStart(2, '0')
 const isTouch = window.matchMedia('(hover: none)').matches
 
@@ -137,6 +138,8 @@ function fillModal(i) {
   current = i
   $('modal-img').src = img(p.slug)
   $('modal-img').alt = `${p.title} — ${p.category}`
+  $('modal-board').src = board(p.slug)
+  $('modal-board').alt = `${p.title} — system board`
   $('modal-cat').textContent = `${pad(i)} / ${pad(projects.length - 1)} — ${p.category}`
   $('modal-title').textContent = p.title
   $('modal-summary').textContent = p.summary

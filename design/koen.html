@@ -1,0 +1,112 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  :root { --orange: #e4572e; --cream: #f1e8d8; --black: #1a1613; --rust: #b9431f; }
+  .wall { background: radial-gradient(90% 70% at 30% 20%, #f2e8da 0%, #e6d9c6 55%, #d6c6af 100%); }
+  .table { left: 0; right: 0; bottom: 0; height: 300px; background: linear-gradient(#d9c9b1, #cdbb9f); box-shadow: 0 -1px 0 rgba(255,255,255,.35); }
+  .blinds { inset: -100px; z-index: 40; mix-blend-mode: multiply; pointer-events: none; filter: blur(7px);
+    background: repeating-linear-gradient(112deg, transparent 0 46px, rgba(110,72,40,.20) 46px 84px);
+    -webkit-mask: radial-gradient(70% 60% at 62% 45%, #000 30%, transparent 80%); }
+  .label { color: #4a3a2c; font-size: 12px; letter-spacing: .14em; }
+
+  .bag { position: absolute; border-radius: 8px 8px 16px 16px; overflow: hidden; }
+  .bag .body { position: absolute; inset: 0; background: var(--bg); }
+  .bag .shade { position: absolute; inset: 0; z-index: 5; pointer-events: none;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,.38) 0%, rgba(0,0,0,0) 12%, rgba(255,255,255,.07) 24%, rgba(0,0,0,0) 40%, rgba(0,0,0,0) 78%, rgba(0,0,0,.30) 94%, rgba(0,0,0,.45) 100%),
+      linear-gradient(180deg, rgba(255,255,255,.06) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,.18) 100%); }
+  .bag .seal { position: absolute; left: 0; right: 0; top: 0; z-index: 6; height: 9%;
+    background: repeating-linear-gradient(90deg, rgba(255,255,255,.07) 0 2px, rgba(0,0,0,.08) 2px 5px), linear-gradient(rgba(0,0,0,.18), rgba(0,0,0,.05));
+    border-bottom: 1px solid rgba(0,0,0,.25); }
+  .bag .notch { position: absolute; top: 10.5%; right: 0; width: 7px; height: 7px; background: #000; opacity: .25; clip-path: polygon(100% 0, 0 50%, 100% 100%); z-index: 6; }
+  .bag .face { position: absolute; inset: 9% 0 0; z-index: 3; display: flex; flex-direction: column; align-items: center; color: var(--ink); }
+  .bag .word { font-family: 'Fraunces'; font-variation-settings: 'opsz' 144; font-weight: 340; letter-spacing: .2em; margin-right: -.2em; }
+  .bag .sub { font-family: 'Inter Tight'; font-weight: 500; text-transform: uppercase; letter-spacing: .34em; margin-right: -.34em; color: var(--accent); }
+  .mac { position: relative; }
+  .mac::before { content: ""; position: absolute; left: 14%; right: 14%; top: .13em; height: .045em; background: currentColor; }
+  .bag .origin { font-family: 'Fraunces'; font-style: italic; font-weight: 350; }
+  .bag .meta { font-family: 'Inter Tight'; text-transform: uppercase; letter-spacing: .18em; opacity: .7; }
+  .bag .foot { position: absolute; left: 7%; right: 7%; bottom: 5%; display: flex; justify-content: space-between; font-family: 'DM Mono'; letter-spacing: .1em; opacity: .75; }
+  .contact { border-radius: 50%; background: rgba(40,25,10,.55); filter: blur(14px); }
+</style></head>
+<body>
+
+<!-- COVER -->
+<div class="board cover grain wall" data-out="koen/cover">
+  <div class="abs table"></div>
+  <div class="abs mono label" style="top:40px;left:44px">KŌEN COFFEE ROASTERS — PACKAGING</div>
+  <div class="abs mono label" style="top:40px;right:44px">2026</div>
+
+  <!-- cast shadows (light from upper left) -->
+  <div class="abs contact" style="left:420px;top:812px;width:300px;height:36px"></div>
+  <div class="abs" style="left:440px;top:560px;width:330px;height:270px;background:rgba(60,35,15,.22);filter:blur(18px);transform:skewX(-38deg);transform-origin:bottom;z-index:0"></div>
+  <div class="abs contact" style="left:200px;top:866px;width:360px;height:40px"></div>
+  <div class="abs" style="left:250px;top:610px;width:360px;height:280px;background:rgba(60,35,15,.25);filter:blur(18px);transform:skewX(-38deg);transform-origin:bottom;z-index:1"></div>
+
+  <div class="bag" data-bag='{"x":430,"y":330,"w":270,"h":490,"bg":"#efe6d6","ink":"#3b2a1d","accent":"#b9431f","sun":"#b9431f","rise":0.72,"origin":"Huila, Colombia","notes":"Panela · red apple · cocoa","no":"№ 02","z":2}'></div>
+  <div class="bag" data-bag='{"x":180,"y":370,"w":320,"h":520,"bg":"#1a1613","ink":"#f1e8d8","accent":"#e4572e","sun":"#e4572e","rise":0.42,"origin":"Guji, Ethiopia","notes":"Apricot · jasmine · black tea","no":"№ 04","z":3}'></div>
+
+  <div class="abs blinds"></div>
+  <div class="abs mono label" style="bottom:40px;left:44px;z-index:60;color:#3b2a1d">SUNRISE SYSTEM · 250 G POUCH</div>
+  <div class="abs mono label" style="bottom:40px;right:44px;z-index:60;color:#3b2a1d">01 / 02</div>
+</div>
+
+<!-- SYSTEM BOARD -->
+<div class="board wide grain" data-out="koen/board" style="background:#efe6d6">
+  <div class="abs mono label" style="top:36px;left:44px">KŌEN — THE SUN CLIMBS WITH EACH ORIGIN</div>
+  <div class="abs mono label" style="top:36px;right:44px">02 / 02</div>
+
+  <div class="abs" style="left:44px;top:110px;width:330px;color:#2a1f17">
+    <svg class="sunmark" data-rise="0.55" data-color="#e4572e" data-bg="#efe6d6" width="150" height="150" viewBox="0 -40 160 160"></svg>
+    <div style="font-family:Fraunces;font-variation-settings:'opsz' 144;font-weight:340;font-size:78px;letter-spacing:.16em;margin-top:18px;line-height:1">K<span class="mac">O</span>EN</div>
+    <div style="font:500 11px 'Inter Tight';letter-spacing:.42em;color:#b9431f;margin-top:12px">COFFEE ROASTERS</div>
+    <p style="font:italic 350 22px/1.3 Fraunces;margin-top:46px;max-width:300px">Every origin gets its own sunrise. Lined up on a shelf, the range reads from first light to full day.</p>
+    <div style="display:flex;gap:8px;margin-top:40px">
+      <i style="width:46px;height:46px;border-radius:50%;background:#1a1613"></i><i style="width:46px;height:46px;border-radius:50%;background:#e4572e"></i><i style="width:46px;height:46px;border-radius:50%;background:#b9431f"></i><i style="width:46px;height:46px;border-radius:50%;background:#f1e8d8;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"></i>
+    </div>
+    <p class="mono" style="font-size:10px;letter-spacing:.12em;margin-top:12px;opacity:.6">ROAST BLACK · SUN ORANGE · CLAY · OAT</p>
+  </div>
+
+  <div class="abs" style="left:430px;right:44px;top:640px;height:1px;background:rgba(60,40,20,.25)"></div>
+  <div class="abs contact" style="left:460px;top:625px;width:200px;height:24px;opacity:.6"></div>
+  <div class="abs contact" style="left:700px;top:625px;width:200px;height:24px;opacity:.6"></div>
+  <div class="abs contact" style="left:940px;top:625px;width:200px;height:24px;opacity:.6"></div>
+  <div class="bag" data-bag='{"x":450,"y":250,"w":220,"h":390,"bg":"#1a1613","ink":"#f1e8d8","accent":"#e4572e","sun":"#e4572e","rise":0.25,"origin":"Guji, Ethiopia","notes":"Apricot · jasmine","no":"№ 04","z":2}'></div>
+  <div class="bag" data-bag='{"x":690,"y":250,"w":220,"h":390,"bg":"#efe6d6","ink":"#3b2a1d","accent":"#b9431f","sun":"#b9431f","rise":0.6,"origin":"Huila, Colombia","notes":"Panela · red apple","no":"№ 02","z":2,"edge":true}'></div>
+  <div class="bag" data-bag='{"x":930,"y":250,"w":220,"h":390,"bg":"#b9431f","ink":"#f6ecdc","accent":"#f6ecdc","sun":"#f6ecdc","rise":1,"origin":"Nyeri, Kenya","notes":"Blackcurrant · grapefruit","no":"№ 07","z":2}'></div>
+  <div class="abs mono label" style="left:450px;top:662px;width:220px;text-align:center;font-size:10px">FIRST LIGHT</div>
+  <div class="abs mono label" style="left:690px;top:662px;width:220px;text-align:center;font-size:10px">SUNRISE</div>
+  <div class="abs mono label" style="left:930px;top:662px;width:220px;text-align:center;font-size:10px">FULL DAY</div>
+</div>
+
+<script>
+  // Sun-over-horizon mark: the sun is clipped at the horizon and shows through three thinning bands below it.
+  function sunSvg(rise, color) {
+    const cy = 80 + 50 - rise * 100
+    const id = 'c' + Math.random().toString(36).slice(2)
+    return `<defs><clipPath id="${id}"><rect x="0" y="-40" width="160" height="120"/><rect x="0" y="86" width="160" height="7"/><rect x="0" y="99" width="160" height="5"/><rect x="0" y="110" width="160" height="3"/></clipPath></defs>
+      <circle cx="80" cy="${cy}" r="50" fill="${color}" clip-path="url(#${id})"/>
+      <rect x="10" y="79" width="140" height="1.4" fill="${color}" opacity=".9"/>`
+  }
+  document.querySelectorAll('svg.sunmark').forEach((s) => (s.innerHTML = sunSvg(+s.dataset.rise, s.dataset.color)))
+
+  document.querySelectorAll('[data-bag]').forEach((el) => {
+    const b = JSON.parse(el.dataset.bag)
+    const k = b.w / 300
+    Object.assign(el.style, { left: b.x + 'px', top: b.y + 'px', width: b.w + 'px', height: b.h + 'px', zIndex: b.z,
+      boxShadow: b.edge ? 'inset 0 0 0 1px rgba(0,0,0,.08)' : 'none' })
+    el.style.setProperty('--bg', b.bg); el.style.setProperty('--ink', b.ink); el.style.setProperty('--accent', b.accent)
+    el.innerHTML = `<div class="body paper"></div>
+      <div class="face">
+        <svg viewBox="0 -40 160 160" style="width:${170 * k}px;margin-top:${40 * k}px">${sunSvg(b.rise, b.sun)}</svg>
+        <div class="word" style="font-size:${50 * k}px;margin-top:${12 * k}px">K<span class="mac">O</span>EN</div>
+        <div class="sub" style="font-size:${8.5 * k}px;margin-top:${8 * k}px">Coffee Roasters</div>
+        <div style="width:${70 * k}px;height:1px;background:currentColor;opacity:.25;margin:${26 * k}px 0 ${18 * k}px"></div>
+        <div class="origin" style="font-size:${22 * k}px">${b.origin}</div>
+        <div class="meta" style="font-size:${8 * k}px;margin-top:${8 * k}px">${b.notes}</div>
+      </div>
+      <div class="foot" style="font-size:${9 * k}px;color:${b.ink}"><span>250 G · WHOLE BEAN</span><span>${b.no}</span></div>
+      <div class="seal"></div><div class="notch"></div><div class="shade"></div>`
+  })
+</script>
+</body></html>

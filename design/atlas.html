@@ -1,0 +1,178 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  :root { --blue: #1f4bff; --ink: #0a0a10; --paper: #f4f6ff; --orange: #ff5b2e; }
+  body { font-family: 'Inter Tight', sans-serif; }
+  .bluebg { background: radial-gradient(80% 60% at 50% 30%, #3a64ff 0%, #1f4bff 50%, #1636c9 100%); }
+  .pattern { inset: 0; opacity: .08; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='90' height='90'><path d='M18 72 L72 18 M42 18 H72 V48' stroke='white' stroke-width='7' fill='none'/></svg>"); background-size: 90px; }
+  .phone { position: absolute; border-radius: 46px; background: linear-gradient(135deg, #2b2d36, #0b0b10 40%, #1a1b22); padding: 10px;
+    box-shadow: 0 60px 90px rgba(5,15,80,.55), 0 20px 30px rgba(5,15,80,.35), inset 0 0 0 1.5px rgba(255,255,255,.12); }
+  .phone .screen { position: relative; width: 100%; height: 100%; border-radius: 37px; overflow: hidden; background: var(--paper); }
+  .phone .island { position: absolute; top: 12px; left: 50%; width: 86px; height: 25px; margin-left: -43px; border-radius: 20px; background: #000; z-index: 20; }
+  .phone .btn { position: absolute; width: 3px; background: #23242b; border-radius: 2px; }
+  .status { position: absolute; top: 15px; left: 26px; right: 24px; display: flex; justify-content: space-between; font: 600 12px 'Inter Tight'; z-index: 15; }
+  .label { font-size: 12px; letter-spacing: .14em; }
+  .card { background: #fff; border-radius: 16px; box-shadow: 0 6px 18px rgba(10,20,60,.10); }
+</style></head>
+<body>
+
+<!-- COVER -->
+<div class="board cover grain bluebg" data-out="atlas/cover">
+  <div class="abs pattern"></div>
+  <div class="abs" style="top:40px;left:44px;display:flex;align-items:center;gap:10px;color:#fff">
+    <svg width="30" height="30" viewBox="0 0 100 100"><path d="M18 82 L80 20 M44 20 H80 V56" stroke="#fff" stroke-width="14" fill="none"/></svg>
+    <span style="font:800 26px 'Inter Tight';letter-spacing:-.03em">atlas</span>
+  </div>
+  <div class="abs mono label" style="top:48px;right:44px;color:rgba(255,255,255,.7)">CONCEPT · 2025</div>
+
+  <div class="phone" id="p-ride" style="left:30px;top:250px;width:270px;height:556px;transform:rotate(-9deg)"></div>
+  <div class="phone" id="p-scan" style="left:500px;top:250px;width:270px;height:556px;transform:rotate(9deg)"></div>
+  <div class="phone" id="p-map" style="left:250px;top:170px;width:300px;height:620px;z-index:5"></div>
+
+  <div class="abs mono label" style="bottom:40px;left:44px;color:rgba(255,255,255,.75)">BRAND &amp; APP UI — CITY BIKES + SCOOTERS</div>
+  <div class="abs mono label" style="bottom:40px;right:44px;color:rgba(255,255,255,.75)">01 / 02</div>
+</div>
+
+<!-- BRAND BOARD -->
+<div class="board wide grain" data-out="atlas/board" style="background:var(--paper);color:var(--ink)">
+  <div class="abs mono label" style="top:34px;left:44px">ATLAS — BRAND SYSTEM</div>
+  <div class="abs mono label" style="top:34px;right:44px">02 / 02</div>
+
+  <!-- construction -->
+  <div class="abs" style="left:44px;top:84px;width:360px;height:360px;background:#fff;border:1px solid rgba(10,10,16,.1)">
+    <svg width="360" height="360" viewBox="0 0 100 100">
+      
+      <g id="gridlines"></g>
+      <path d="M18 82 L80 20 M44 20 H80 V56" stroke="#0a0a10" stroke-width="14" fill="none"/>
+      <path d="M18 82 L80 20 M44 20 H80 V56" stroke="#ff5b2e" stroke-width=".35" fill="none"/>
+      <circle cx="80" cy="20" r="1.4" fill="#ff5b2e"/><circle cx="18" cy="82" r="1.4" fill="#ff5b2e"/>
+    </svg>
+    <div class="abs mono" style="left:12px;bottom:10px;font-size:9px;letter-spacing:.12em">MARK ON A 10 × 10 GRID · STROKE = 1.4 UNITS</div>
+  </div>
+
+  <!-- icon sizes -->
+  <div class="abs" style="left:430px;top:84px;display:flex;align-items:end;gap:26px">
+    <div style="width:150px;height:150px;border-radius:34px;background:linear-gradient(160deg,#3a64ff,#1f4bff 60%,#1636c9);display:grid;place-items:center;box-shadow:0 16px 30px rgba(31,75,255,.35)"><svg width="84" height="84" viewBox="0 0 100 100"><path d="M18 82 L80 20 M44 20 H80 V56" stroke="#fff" stroke-width="14" fill="none"/></svg></div>
+    <div style="width:84px;height:84px;border-radius:20px;background:#1f4bff;display:grid;place-items:center"><svg width="46" height="46" viewBox="0 0 100 100"><path d="M18 82 L80 20 M44 20 H80 V56" stroke="#fff" stroke-width="14" fill="none"/></svg></div>
+    <div style="width:44px;height:44px;border-radius:11px;background:#1f4bff;display:grid;place-items:center"><svg width="24" height="24" viewBox="0 0 100 100"><path d="M18 82 L80 20 M44 20 H80 V56" stroke="#fff" stroke-width="16" fill="none"/></svg></div>
+  </div>
+  <div class="abs mono" style="left:430px;top:250px;font-size:9px;letter-spacing:.12em;opacity:.6">APP ICON · 1024 / 180 / 58 PX</div>
+
+  <!-- wordmark + pattern -->
+  <div class="abs" style="left:430px;top:292px;width:330px;height:152px;background:#1f4bff;color:#fff;overflow:hidden;display:flex;align-items:center;padding:0 26px;gap:14px">
+    <div class="abs pattern" style="opacity:.16"></div>
+    <svg width="52" height="52" viewBox="0 0 100 100" style="position:relative"><path d="M18 82 L80 20 M44 20 H80 V56" stroke="#fff" stroke-width="14" fill="none"/></svg>
+    <span style="position:relative;font:800 64px 'Inter Tight';letter-spacing:-.04em">atlas</span>
+  </div>
+
+  <!-- UI kit -->
+  <div class="abs" style="left:44px;top:470px;width:716px;height:118px;background:#fff;border:1px solid rgba(10,10,16,.1);display:flex;align-items:center;gap:14px;padding:0 22px">
+    <div style="height:44px;padding:0 22px;border-radius:22px;background:#0a0a10;color:#fff;display:flex;align-items:center;gap:8px;font:700 14px 'Inter Tight'">Ride now <svg width="13" height="13" viewBox="0 0 100 100"><path d="M18 82 L80 20 M44 20 H80 V56" stroke="#fff" stroke-width="16" fill="none"/></svg></div>
+    <div style="height:44px;padding:0 22px;border-radius:22px;background:#1f4bff;color:#fff;display:flex;align-items:center;font:700 14px 'Inter Tight'">Unlock</div>
+    <div style="height:30px;padding:0 12px;border-radius:15px;background:#ff5b2e;display:flex;align-items:center;font:700 11px 'Inter Tight'">Slow zone</div>
+    <div style="height:30px;padding:0 12px;border-radius:15px;background:#eef1fb;display:flex;align-items:center;font:600 11px 'Inter Tight'">82% battery</div>
+    <div style="width:46px;height:26px;border-radius:13px;background:#1f4bff;position:relative"><i style="position:absolute;right:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff"></i></div>
+    <div class="mono" style="margin-left:auto;font-size:9px;letter-spacing:.12em;opacity:.6;text-align:right">UI KIT<br>v1.0</div>
+  </div>
+
+  <!-- station totem -->
+  <div class="abs" style="left:800px;top:84px;width:356px;height:540px;background:linear-gradient(#e7eaf6,#dfe3f2);overflow:hidden">
+    <div class="abs" style="left:0;right:0;bottom:0;height:120px;background:linear-gradient(#cfd4e6,#c3c9de)"></div>
+    <div class="abs" style="left:96px;top:470px;width:170px;height:26px;border-radius:50%;background:rgba(10,20,60,.3);filter:blur(10px)"></div>
+    <div class="abs" style="left:116px;top:60px;width:124px;height:424px;border-radius:8px;background:linear-gradient(90deg,#1636c9,#2a58ff 40%,#1a40e0);box-shadow:inset -10px 0 20px rgba(0,0,0,.18);color:#fff;overflow:hidden">
+      <svg style="position:absolute;left:28px;top:30px" width="68" height="68" viewBox="0 0 100 100"><path d="M18 82 L80 20 M44 20 H80 V56" stroke="#fff" stroke-width="14" fill="none"/></svg>
+      <div style="position:absolute;left:0;right:0;top:120px;text-align:center;font:800 26px 'Inter Tight';letter-spacing:-.03em">atlas</div>
+      <div style="position:absolute;left:14px;right:14px;top:176px;height:1px;background:rgba(255,255,255,.35)"></div>
+      <div class="mono" style="position:absolute;left:14px;top:192px;font-size:9px;letter-spacing:.12em;line-height:1.7">STATION 14<br>CLIFTON BLOCK 5</div>
+      <div style="position:absolute;left:14px;right:14px;top:252px;padding:10px;border-radius:6px;background:#fff;color:#0a0a10">
+        <div style="font:800 26px 'Inter Tight'">6</div><div class="mono" style="font-size:8px;letter-spacing:.1em">BIKES FREE</div>
+      </div>
+      <div style="position:absolute;left:14px;right:14px;top:330px;padding:10px;border-radius:6px;background:#ff5b2e;color:#0a0a10">
+        <div style="font:800 26px 'Inter Tight'">3</div><div class="mono" style="font-size:8px;letter-spacing:.1em">SCOOTERS</div>
+      </div>
+    </div>
+    <div class="abs mono" style="left:12px;bottom:10px;font-size:9px;letter-spacing:.12em;opacity:.7">STATION TOTEM · 1.8 M</div>
+  </div>
+
+  <div class="abs" style="left:44px;right:410px;bottom:40px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end;border-top:1px solid rgba(10,10,16,.15);padding-top:20px">
+    <div><div style="font:800 54px/1 'Inter Tight';letter-spacing:-.04em">Aa 4 min</div><p class="mono" style="font-size:10px;letter-spacing:.12em;opacity:.6;margin-top:8px">INTER TIGHT — 800 / 500</p></div>
+    <div style="display:flex;gap:8px;justify-content:end"><i style="width:58px;height:58px;background:#1f4bff"></i><i style="width:58px;height:58px;background:#0a0a10"></i><i style="width:58px;height:58px;background:#ff5b2e"></i><i style="width:58px;height:58px;background:#f4f6ff;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"></i></div>
+  </div>
+</div>
+
+<script>
+  const arrow = (c, w = 14) => `<path d="M18 82 L80 20 M44 20 H80 V56" stroke="${c}" stroke-width="${w}" fill="none"/>`
+  let gl = ''
+  for (let i = 0; i <= 10; i++) gl += `<line x1="${i * 10}" y1="0" x2="${i * 10}" y2="100" stroke="#1f4bff" stroke-opacity=".18" stroke-width=".25"/><line x1="0" y1="${i * 10}" x2="100" y2="${i * 10}" stroke="#1f4bff" stroke-opacity=".18" stroke-width=".25"/>`
+  document.getElementById('gridlines').innerHTML = gl
+
+  const map = `
+    <svg viewBox="0 0 300 400" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0">
+      <rect width="300" height="400" fill="#e9edf6"/>
+      <path d="M-10 300 C60 280 120 330 200 300 S300 280 320 300 V420 H-10 Z" fill="#c9dcff"/>
+      <rect x="170" y="40" width="90" height="70" rx="6" fill="#d4ecd8"/>
+      <g stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round">
+        <path d="M-10 70 L320 120"/><path d="M60 -10 L110 420"/><path d="M-10 200 L320 180"/><path d="M200 -10 L230 300"/>
+      </g>
+      <g stroke="#fff" stroke-width="4" fill="none"><path d="M-10 140 L320 150"/><path d="M150 -10 L160 300"/><path d="M-10 250 L300 240"/><path d="M20 -10 L40 300"/><path d="M260 -10 L280 300"/></g>
+      <path d="M78 236 L94 192 L152 186 L158 120 L226 112" stroke="#1f4bff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="78" cy="236" r="8" fill="#1f4bff" stroke="#fff" stroke-width="3"/>
+      <circle cx="226" cy="112" r="8" fill="#ff5b2e" stroke="#fff" stroke-width="3"/>
+      <g transform="translate(118 150)"><rect width="28" height="28" rx="8" fill="#0a0a10"/><path d="M8 20 L20 8 M12 8 H20 V16" stroke="#fff" stroke-width="2.4" fill="none"/></g>
+      <g transform="translate(40 110)"><rect width="28" height="28" rx="8" fill="#0a0a10"/><path d="M8 20 L20 8 M12 8 H20 V16" stroke="#fff" stroke-width="2.4" fill="none"/></g>
+    </svg>`
+
+  document.getElementById('p-map').innerHTML = `<div class="island"></div><div class="btn" style="left:-3px;top:130px;height:56px"></div><div class="btn" style="right:-3px;top:150px;height:80px"></div>
+    <div class="screen">
+      ${map}
+      <div class="status" style="color:#0a0a10"><span>9:41</span><span>●●● ▮</span></div>
+      <div class="card" style="position:absolute;top:56px;left:14px;right:14px;padding:12px 14px;display:flex;align-items:center;gap:10px">
+        <span style="width:9px;height:9px;border-radius:50%;background:#ff5b2e"></span>
+        <div><div style="font:600 10px 'Inter Tight';opacity:.5">TO</div><div style="font:700 14px 'Inter Tight'">Sea View Promenade</div></div>
+      </div>
+      <div style="position:absolute;left:0;right:0;bottom:0;padding:14px 14px 18px;background:#fff;border-radius:24px 24px 0 0;box-shadow:0 -8px 24px rgba(10,20,60,.12)">
+        <div style="width:36px;height:4px;border-radius:2px;background:#d9dce8;margin:0 auto 12px"></div>
+        <div style="font:800 20px 'Inter Tight';letter-spacing:-.02em">Ride options</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
+          <div style="padding:10px;border-radius:14px;background:#1f4bff;color:#fff"><div style="font:600 10px 'Inter Tight';opacity:.8">BIKE</div><div style="font:800 20px 'Inter Tight'">4 min</div><div style="font:500 10px 'Inter Tight';opacity:.8">Rs 120 · 2.4 km</div></div>
+          <div style="padding:10px;border-radius:14px;background:#f1f3fa"><div style="font:600 10px 'Inter Tight';opacity:.6">SCOOTER</div><div style="font:800 20px 'Inter Tight'">2 min</div><div style="font:500 10px 'Inter Tight';opacity:.6">Rs 180 · 82%</div></div>
+        </div>
+        <div style="margin-top:10px;height:44px;border-radius:22px;background:#0a0a10;color:#fff;display:flex;align-items:center;justify-content:center;gap:8px;font:700 14px 'Inter Tight'">Ride now <svg width="14" height="14" viewBox="0 0 100 100">${arrow('#fff', 16)}</svg></div>
+      </div>
+    </div>`
+
+  document.getElementById('p-ride').innerHTML = `<div class="island"></div>
+    <div class="screen" style="background:#0a0a10;color:#fff">
+      <div class="status"><span>9:58</span><span>●●● ▮</span></div>
+      <div style="position:absolute;top:62px;left:20px;font:600 11px 'Inter Tight';opacity:.6;letter-spacing:.1em">RIDING · BIKE A-2041</div>
+      <svg style="position:absolute;left:35px;top:96px" width="180" height="180" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="42" stroke="#24252e" stroke-width="7" fill="none"/>
+        <circle cx="50" cy="50" r="42" stroke="#1f4bff" stroke-width="7" fill="none" stroke-dasharray="264" stroke-dashoffset="92" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+        <text x="50" y="50" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="20" fill="#fff">12:48</text>
+        <text x="50" y="64" text-anchor="middle" font-family="Inter Tight" font-weight="500" font-size="6.5" fill="#fff" opacity=".6">MINUTES</text>
+      </svg>
+      <div style="position:absolute;left:20px;right:20px;top:300px;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div style="padding:12px;border-radius:14px;background:#17181f"><div style="font:800 22px 'Inter Tight'">2.4<span style="font-size:12px;opacity:.6"> km</span></div><div style="font:500 10px 'Inter Tight';opacity:.55">Distance</div></div>
+        <div style="padding:12px;border-radius:14px;background:#17181f"><div style="font:800 22px 'Inter Tight'">Rs 96</div><div style="font:500 10px 'Inter Tight';opacity:.55">So far</div></div>
+      </div>
+      <div style="position:absolute;left:20px;right:20px;top:396px;padding:12px;border-radius:14px;background:#ff5b2e;color:#0a0a10;font:700 12px 'Inter Tight'">Slow zone ahead — 15 km/h</div>
+      <div style="position:absolute;left:20px;right:20px;bottom:24px;height:44px;border-radius:22px;border:1.5px solid #fff;display:grid;place-items:center;font:700 14px 'Inter Tight'">End ride</div>
+    </div>`
+
+  document.getElementById('p-scan').innerHTML = `<div class="island"></div>
+    <div class="screen" style="background:radial-gradient(80% 60% at 50% 40%, #39404f, #0d0f15);color:#fff">
+      <div class="status"><span>9:44</span><span>●●● ▮</span></div>
+      <div style="position:absolute;top:62px;left:0;right:0;text-align:center;font:800 20px 'Inter Tight';letter-spacing:-.02em">Scan to unlock</div>
+      <div style="position:absolute;left:50px;top:130px;width:150px;height:150px">
+        <div style="position:absolute;inset:18px;background:repeating-conic-gradient(#fff 0 25%, transparent 0 50%) 0 0/18px 18px;opacity:.85;border-radius:4px"></div>
+        ${['top:0;left:0;border-width:4px 0 0 4px', 'top:0;right:0;border-width:4px 4px 0 0', 'bottom:0;left:0;border-width:0 0 4px 4px', 'bottom:0;right:0;border-width:0 4px 4px 0'].map((s) => `<div style="position:absolute;width:30px;height:30px;border:solid #1f4bff;${s};border-radius:4px"></div>`).join('')}
+        <div style="position:absolute;left:10px;right:10px;top:70px;height:2px;background:#ff5b2e;box-shadow:0 0 12px #ff5b2e"></div>
+      </div>
+      <div style="position:absolute;left:16px;right:16px;bottom:20px;padding:14px;border-radius:18px;background:#fff;color:#0a0a10">
+        <div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font:600 10px 'Inter Tight';opacity:.5">SCOOTER</div><div style="font:800 18px 'Inter Tight'">#A-2041</div></div>
+        <div style="text-align:right"><div style="font:800 18px 'Inter Tight'">82%</div><div style="font:600 10px 'Inter Tight';opacity:.5">≈ 24 km</div></div></div>
+        <div style="height:6px;border-radius:3px;background:#e7eaf6;margin-top:10px"><div style="width:82%;height:100%;border-radius:3px;background:#1f4bff"></div></div>
+      </div>
+    </div>`
+</script>
+</body></html>

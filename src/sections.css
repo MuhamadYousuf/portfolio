@@ -119,7 +119,9 @@ html, body, main { overflow-x: clip; }
 
 /* Modal v2 */
 .modal__panel { align-items: start; }
-.modal__media { position: sticky; top: 0; }
+.modal__media { position: relative; }
+.modal__board { grid-column: 1 / -1; margin: 0; background: #111; }
+.modal__board img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; }
 .modal__media img { height: auto; aspect-ratio: 4 / 5; }
 .modal__info { gap: 22px; }
 .modal__info .modal__summary { font-size: 18px; color: #222; }

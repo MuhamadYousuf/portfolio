@@ -32,9 +32,20 @@ Import this repo in Vercel. It detects Vite automatically:
 - Build command: `npm run build`
 - Output directory: `dist`
 
+## Project artwork
+
+Each project's images are designed as HTML/CSS boards in `design/<slug>.html` (real fonts, lighting, paper grain) and rendered to `public/work/<slug>/cover.webp` (4:5, used in the 3D ring and cards) and `board.webp` (16:10, shown in the case study). After editing a board:
+
+```bash
+npm run render:work            # all projects
+npm run render:work -- koen    # just one
+```
+
+It uses your installed Chrome or Edge (set `CHROME_PATH` if it isn't found).
+
 ## Edit content
 
-- Projects: `src/projects.js` (artwork lives in `public/work/*.svg`, one file per project slug)
+- Projects: `src/projects.js` (artwork: see Project artwork above)
 - Contact email: `EMAIL` at the top of `src/main.js` (and the visible address in `index.html`)
 - Copy and sections: `index.html`
 - Colours and type: CSS variables at the top of `src/style.css`; v2 sections in `src/sections.css`

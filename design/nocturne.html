@@ -1,0 +1,122 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  .ink { --ink: #11132e; --rose: #ff5ea8; --violet: #6c4bff; --haze: #e8e6ff; }
+  .scene { background: radial-gradient(120% 80% at 45% 28%, #2b3160 0%, #151832 45%, #090a16 100%); }
+  .label-top { top: 40px; left: 44px; right: 44px; display: flex; justify-content: space-between; color: rgba(232,230,255,.55); font-size: 12px; letter-spacing: .12em; }
+  .label-bot { bottom: 40px; left: 44px; right: 44px; display: flex; justify-content: space-between; color: rgba(232,230,255,.55); font-size: 12px; letter-spacing: .12em; }
+
+  /* Vinyl */
+  .vinyl { border-radius: 50%; box-shadow: 0 30px 60px rgba(0,0,0,.55);
+    background:
+      conic-gradient(from 200deg, transparent 0 8%, rgba(255,255,255,.16) 13%, transparent 20%, transparent 55%, rgba(255,255,255,.11) 61%, transparent 68%),
+      repeating-radial-gradient(circle, #0c0c0f 0 1.2px, #18181d 1.4px 2.6px);
+  }
+  .vinyl::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle, transparent 30%, rgba(0,0,0,.35) 31%, transparent 33%, transparent 62%, rgba(255,255,255,.05) 63%, transparent 64%); }
+  .vlabel { position: absolute; inset: 33%; border-radius: 50%; background: var(--rose); display: grid; place-items: center; text-align: center; color: var(--ink); }
+  .vlabel::after { content: ''; position: absolute; width: 4.5%; height: 4.5%; border-radius: 50%; background: #090a16; left: 47.75%; top: 47.75%; }
+  .vlabel span { font: 500 9px 'DM Mono'; letter-spacing: .14em; position: absolute; }
+
+  /* Sleeve */
+  .sleeve { background: var(--ink); color: var(--haze); overflow: hidden;
+    box-shadow: 0 50px 90px rgba(0,0,0,.6), 0 12px 24px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.07); }
+  .sleeve .light { position: absolute; inset: 0; z-index: 30; background: linear-gradient(125deg, rgba(255,255,255,.13) 0%, rgba(255,255,255,0) 38%, rgba(0,0,0,0) 60%, rgba(0,0,0,.28) 100%); pointer-events: none; }
+  .wordmark { font-family: 'Archivo'; font-variation-settings: 'wdth' 125; font-weight: 600; letter-spacing: -.01em; }
+  .rings { position: absolute; }
+</style></head>
+<body class="ink">
+
+<!-- COVER -->
+<div class="board cover grain scene" data-out="nocturne/cover">
+  <div class="abs label-top mono"><span>NOCTURNE RECORDS — LP SLEEVE</span><span>VOL. 03 / 2026</span></div>
+
+  <div class="abs" style="left:50%;top:51%;width:0;height:0">
+    <div class="abs" style="left:-250px;top:-210px;width:560px;height:110px;border-radius:50%;background:rgba(0,0,0,.55);filter:blur(40px);transform:translateY(470px)"></div>
+    <div class="abs vinyl" style="width:500px;height:500px;left:-10px;top:-262px;transform:rotate(18deg)">
+      <div class="vlabel"><span style="top:24%">NOCTURNE</span><span style="bottom:24%">NCT—003 · A</span></div>
+    </div>
+    <div class="abs sleeve paper" style="width:560px;height:560px;left:-350px;top:-290px;transform:rotate(-3deg)">
+      <svg class="rings" data-rings="11" data-cx="430" data-cy="350" data-step="36" data-c1="#ff5ea8" data-c2="#6c4bff" width="560" height="560"></svg>
+      <div class="abs wordmark" style="top:34px;left:36px;font-size:30px">Nocturne</div>
+      <div class="abs mono" style="top:74px;left:38px;font-size:10px;letter-spacing:.32em;opacity:.7">RECORDS</div>
+      <div class="abs mono" style="top:38px;right:36px;font-size:10px;letter-spacing:.2em;opacity:.7;text-align:right">NCT—003<br>33⅓ RPM</div>
+      <div class="abs serif" style="left:34px;bottom:78px;font-size:76px;font-style:italic;line-height:.9">Moira Vex</div>
+      <div class="abs wordmark" style="left:38px;bottom:42px;font-size:15px;letter-spacing:.32em;font-weight:400">LOW HOURS</div>
+      <div class="light"></div>
+    </div>
+  </div>
+
+  <div class="abs label-bot mono"><span>IDENTITY · SLEEVE SYSTEM</span><span>01 / 02</span></div>
+</div>
+
+<!-- SYSTEM BOARD -->
+<div class="board wide grain" data-out="nocturne/board" style="background:#0d0f1f;color:var(--haze)">
+  <div class="abs mono" style="top:36px;left:44px;font-size:11px;letter-spacing:.14em;opacity:.55">NOCTURNE RECORDS — VISUAL SYSTEM</div>
+  <div class="abs mono" style="top:36px;right:44px;font-size:11px;letter-spacing:.14em;opacity:.55">02 / 02</div>
+
+  <!-- Lockup -->
+  <div class="abs" style="left:44px;top:90px;width:400px;height:420px;border:1px solid rgba(232,230,255,.12);border-radius:4px">
+    <div class="abs" style="inset:46px;border:1px dashed rgba(255,94,168,.35)"></div>
+    <svg class="rings abs" data-rings="7" data-cx="200" data-cy="170" data-step="13" data-c1="#ff5ea8" data-c2="#6c4bff" data-r0="14" width="400" height="300" style="top:0;left:0"></svg>
+    <div class="abs wordmark" style="top:268px;width:100%;text-align:center;font-size:40px">Nocturne</div>
+    <div class="abs mono" style="top:322px;width:100%;text-align:center;font-size:11px;letter-spacing:.42em;opacity:.7">RECORDS</div>
+    <div class="abs mono" style="bottom:14px;left:16px;font-size:10px;letter-spacing:.12em;opacity:.45">PRIMARY LOCKUP · CLEARSPACE = 1 RING</div>
+  </div>
+
+  <!-- Sleeve family -->
+  <div class="abs" style="left:480px;top:90px;display:flex;gap:22px">
+    <div class="sleeve paper" style="position:relative;width:216px;height:216px;background:#ff5a1f;color:#11132e">
+      <svg class="rings" data-rings="9" data-cx="200" data-cy="20" data-step="22" data-c1="#11132e" data-c2="#11132e" width="216" height="216"></svg>
+      <div class="abs wordmark" style="top:16px;left:16px;font-size:13px">Nocturne</div>
+      <div class="abs serif" style="left:16px;bottom:32px;font-size:30px;font-style:italic;line-height:.9">Pale Engine</div>
+      <div class="abs mono" style="left:16px;bottom:14px;font-size:8px;letter-spacing:.2em">NCT—001</div>
+      <div class="light"></div>
+    </div>
+    <div class="sleeve paper" style="position:relative;width:216px;height:216px;background:#e8e6ff;color:#11132e">
+      <svg class="rings" data-rings="9" data-cx="108" data-cy="40" data-step="20" data-c1="#6c4bff" data-c2="#11132e" width="216" height="216"></svg>
+      <div class="abs wordmark" style="top:16px;left:16px;font-size:13px">Nocturne</div>
+      <div class="abs serif" style="left:16px;bottom:32px;font-size:30px;font-style:italic;line-height:.9">Duskwave</div>
+      <div class="abs mono" style="left:16px;bottom:14px;font-size:8px;letter-spacing:.2em">NCT—002</div>
+      <div class="light"></div>
+    </div>
+    <div class="sleeve paper" style="position:relative;width:216px;height:216px">
+      <svg class="rings" data-rings="9" data-cx="168" data-cy="140" data-step="16" data-c1="#ff5ea8" data-c2="#6c4bff" width="216" height="216"></svg>
+      <div class="abs wordmark" style="top:16px;left:16px;font-size:13px">Nocturne</div>
+      <div class="abs serif" style="left:16px;bottom:32px;font-size:30px;font-style:italic;line-height:.9">Moira Vex</div>
+      <div class="abs mono" style="left:16px;bottom:14px;font-size:8px;letter-spacing:.2em">NCT—003</div>
+      <div class="light"></div>
+    </div>
+  </div>
+  <div class="abs mono" style="left:480px;top:322px;font-size:10px;letter-spacing:.12em;opacity:.45">ONE RULE: THE RING FIELD MOVES, EVERYTHING ELSE STAYS PUT</div>
+
+  <!-- Palette -->
+  <div class="abs" style="left:480px;top:370px;display:flex;gap:10px">
+    <div style="width:165px"><div style="height:150px;background:#11132e;border:1px solid rgba(232,230,255,.15)"></div><p class="mono" style="font-size:10px;margin-top:8px;letter-spacing:.08em">MIDNIGHT<br><span style="opacity:.5">#11132E</span></p></div>
+    <div style="width:165px"><div style="height:150px;background:#6c4bff"></div><p class="mono" style="font-size:10px;margin-top:8px;letter-spacing:.08em">VIOLET<br><span style="opacity:.5">#6C4BFF</span></p></div>
+    <div style="width:165px"><div style="height:150px;background:#ff5ea8"></div><p class="mono" style="font-size:10px;margin-top:8px;letter-spacing:.08em">NEON ROSE<br><span style="opacity:.5">#FF5EA8</span></p></div>
+    <div style="width:165px"><div style="height:150px;background:#e8e6ff"></div><p class="mono" style="font-size:10px;margin-top:8px;letter-spacing:.08em">HAZE<br><span style="opacity:.5">#E8E6FF</span></p></div>
+  </div>
+
+  <!-- Type -->
+  <div class="abs" style="left:44px;right:44px;bottom:44px;display:grid;grid-template-columns:400px 1fr 1fr;gap:36px;align-items:end;border-top:1px solid rgba(232,230,255,.12);padding-top:22px">
+    <div><div class="wordmark" style="font-size:54px;line-height:1">Aa Rr</div><p class="mono" style="font-size:10px;letter-spacing:.12em;opacity:.5;margin-top:8px">ARCHIVO EXPANDED — LABEL &amp; HEADINGS</p></div>
+    <div><div class="serif" style="font-size:58px;font-style:italic;line-height:1">Aa Rr</div><p class="mono" style="font-size:10px;letter-spacing:.12em;opacity:.5;margin-top:8px">INSTRUMENT SERIF ITALIC — ARTISTS</p></div>
+    <div><div class="mono" style="font-size:40px;line-height:1.2">NCT—003</div><p class="mono" style="font-size:10px;letter-spacing:.12em;opacity:.5;margin-top:8px">DM MONO — CATALOGUE DATA</p></div>
+  </div>
+</div>
+
+<script>
+  // Concentric ring field: the label's single graphic device.
+  document.querySelectorAll('svg[data-rings]').forEach((svg) => {
+    const n = +svg.dataset.rings, cx = +svg.dataset.cx, cy = +svg.dataset.cy, step = +svg.dataset.step, r0 = +(svg.dataset.r0 || step)
+    const id = 'g' + Math.random().toString(36).slice(2)
+    let out = `<defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${svg.dataset.c1}"/><stop offset="1" stop-color="${svg.dataset.c2}"/></linearGradient></defs>`
+    for (let i = 0; i < n; i++) {
+      const r = r0 + i * step
+      out += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="url(#${id})" stroke-width="${i === n - 3 ? 3.2 : 1.1}" opacity="${1 - i * 0.045}"/>`
+    }
+    out += `<circle cx="${cx}" cy="${cy}" r="${Math.max(3, r0 * 0.28)}" fill="${svg.dataset.c1}"/>`
+    svg.innerHTML = out
+  })
+</script>
+</body></html>
