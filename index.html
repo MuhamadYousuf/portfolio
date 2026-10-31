@@ -2,10 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Muhammad Yousuf — Graphic Designer</title>
     <meta name="description" content="Muhammad Yousuf is a graphic designer crafting brand identities, packaging, posters, type and editorial work that refuses to be quiet." />
     <meta name="theme-color" content="#0c0c0c" />
+    <meta property="og:title" content="Muhammad Yousuf — Graphic Designer" />
+    <meta property="og:description" content="Brand identity, packaging, posters, type and editorial design." />
+    <meta property="og:image" content="/work/fieldwork.svg" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,8 +16,9 @@
   </head>
   <body>
     <div class="loader" id="loader">
+      <div class="loader__swatches" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
       <div class="loader__count"><span id="loader-num">0</span><sup>%</sup></div>
-      <div class="loader__label">Mixing ink, loading pixels</div>
+      <div class="loader__label">Mixing ink, kerning pixels</div>
     </div>
 
     <canvas id="webgl" aria-hidden="true"></canvas>
@@ -25,27 +29,33 @@
       <a href="#top" class="nav__logo">MY<sup>®</sup></a>
       <nav class="nav__links">
         <a href="#work">Work</a>
-        <a href="#services">Services</a>
+        <a href="#principles">Principles</a>
+        <a href="#craft">Craft</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a href="#contact" class="nav__status"><i></i>Available — Nov ’26</a>
+      <a href="#contact" class="nav__status"><i></i><span>Available for projects</span></a>
     </header>
 
     <main id="top">
       <section class="hero">
         <div class="hero__meta">
           <span>Portfolio © 2019 — 2026</span>
-          <span>Based in Karachi, PK · Working worldwide</span>
+          <span>Karachi, PK · Working worldwide</span>
         </div>
-        <h1 class="hero__title">
+        <h1 class="hero__title" data-fit="190">
           <span class="line"><span class="word">Muhammad</span></span>
           <span class="line"><span class="word serif">Yousuf</span><span class="word star">✶</span></span>
           <span class="line"><span class="word outline">Graphic</span></span>
           <span class="line"><span class="word">Designer</span></span>
         </h1>
         <div class="hero__bottom">
-          <p class="hero__intro">I design brands, posters, packaging and type that <em>refuse to be quiet</em>. Drag the ring — every frame is a project.</p>
+          <p class="hero__intro">Brand identity, packaging, posters, type and editorial design that <em>refuses to be quiet</em>. <span class="hero__hint">Drag the ring — every frame is a project.</span></p>
+          <div class="hero__specs" aria-hidden="true">
+            <span>Grid — 12 col</span>
+            <span>Type — Syne / Instrument</span>
+            <span>Ink — #FF4D1F</span>
+          </div>
           <div class="hero__scroll"><span>Scroll</span><i></i></div>
         </div>
       </section>
@@ -61,27 +71,136 @@
         <div class="section-head">
           <span class="section-head__num">(01)</span>
           <h2 class="section-head__title reveal">Selected <em>work</em></h2>
-          <p class="section-head__text reveal">Eight projects from the last three years — identities, packaging, campaigns and a typeface.</p>
+          <p class="section-head__text reveal">Eight projects from the last three years — identities, packaging, campaigns, editorial and a typeface. Click any piece for the brief, palette and type.</p>
+        </div>
+        <div class="filters" id="filters" role="tablist" aria-label="Filter projects">
+          <button class="is-active" data-filter="all">All</button>
+          <button data-filter="identity">Identity</button>
+          <button data-filter="print">Print &amp; Packaging</button>
+          <button data-filter="type">Type &amp; Editorial</button>
         </div>
         <div class="work__grid" id="work-grid"></div>
       </section>
 
-      <section class="services" id="services">
+      <section class="principles" id="principles">
         <div class="section-head">
           <span class="section-head__num">(02)</span>
+          <h2 class="section-head__title reveal">Design <em>principles</em></h2>
+          <p class="section-head__text reveal">Four rules I come back to on every brief, from a business card to a festival campaign.</p>
+        </div>
+        <div class="principles__list">
+          <article class="principle">
+            <div class="principle__art" aria-hidden="true">
+              <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="88" fill="#ff4d1f"/><text x="100" y="128" text-anchor="middle" font-family="Syne" font-weight="800" font-size="78" fill="#0c0c0c">1</text></svg>
+            </div>
+            <span class="principle__num">P—01</span>
+            <h3>One idea, <em>set loud.</em></h3>
+            <p>Every strong piece of design says one thing clearly. I find that one thing first, then make everything else serve it.</p>
+          </article>
+          <article class="principle">
+            <div class="principle__art" aria-hidden="true">
+              <svg viewBox="0 0 200 200"><g stroke="#f1efe9" stroke-opacity=".35"><line x1="50" y1="10" x2="50" y2="190"/><line x1="100" y1="10" x2="100" y2="190"/><line x1="150" y1="10" x2="150" y2="190"/><line x1="10" y1="70" x2="190" y2="70"/><line x1="10" y1="130" x2="190" y2="130"/></g><rect x="50" y="70" width="100" height="60" fill="#d4ff3a"/><rect x="118" y="20" width="62" height="88" fill="#ff4d1f" transform="rotate(12 149 64)"/></svg>
+            </div>
+            <span class="principle__num">P—02</span>
+            <h3>Build the grid, <em>then break it.</em></h3>
+            <p>Structure makes work feel considered; one deliberate break makes it feel alive. The break only works because the grid is there.</p>
+          </article>
+          <article class="principle">
+            <div class="principle__art" aria-hidden="true">
+              <svg viewBox="0 0 200 200"><text x="100" y="140" text-anchor="middle" font-family="Instrument Serif" font-style="italic" font-size="150" fill="#f1efe9">Aa</text><line x1="10" y1="140" x2="190" y2="140" stroke="#ff4d1f" stroke-width="2"/><line x1="10" y1="62" x2="190" y2="62" stroke="#ff4d1f" stroke-width="1" stroke-dasharray="4 4"/></svg>
+            </div>
+            <span class="principle__num">P—03</span>
+            <h3>Type <em>is the image.</em></h3>
+            <p>Letterforms carry tone before anyone reads a word. I treat type as illustration — scaled, cropped and spaced with intent.</p>
+          </article>
+          <article class="principle">
+            <div class="principle__art" aria-hidden="true">
+              <svg viewBox="0 0 200 200"><rect x="10" y="40" width="90" height="120" fill="#0c0c0c" stroke="#f1efe9" stroke-opacity=".3"/><rect x="100" y="40" width="90" height="120" fill="#f1efe9"/><circle cx="100" cy="100" r="34" fill="#ff4d1f"/></svg>
+            </div>
+            <span class="principle__num">P—04</span>
+            <h3>Contrast <em>over decoration.</em></h3>
+            <p>Scale, weight and colour contrast do more than ornament ever will. If it isn’t helping the message, it goes.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="services" id="services">
+        <div class="section-head">
+          <span class="section-head__num">(03)</span>
           <h2 class="section-head__title reveal">What I <em>do</em></h2>
         </div>
         <ul class="services__list">
-          <li class="service"><span class="service__num">01</span><h3>Brand Identity</h3><p>Logos, systems and guidelines that scale from a favicon to a billboard.</p><span class="service__arrow">↗</span></li>
-          <li class="service"><span class="service__num">02</span><h3>Packaging</h3><p>Shelf-stopping structures and labels that make people pick it up.</p><span class="service__arrow">↗</span></li>
-          <li class="service"><span class="service__num">03</span><h3>Posters &amp; Campaigns</h3><p>Print and social campaigns built on one loud, repeatable idea.</p><span class="service__arrow">↗</span></li>
-          <li class="service"><span class="service__num">04</span><h3>Type &amp; Editorial</h3><p>Custom lettering, typefaces and editorial grids with real rhythm.</p><span class="service__arrow">↗</span></li>
+          <li class="service">
+            <span class="service__num">01</span><h3>Brand Identity</h3>
+            <div class="service__body"><p>Logos, visual systems and guidelines that scale from a favicon to a billboard.</p><div class="service__tags"><span>Logo &amp; wordmark</span><span>Visual language</span><span>Brand guidelines</span><span>Naming support</span></div></div>
+            <span class="service__arrow">↗</span>
+          </li>
+          <li class="service">
+            <span class="service__num">02</span><h3>Packaging</h3>
+            <div class="service__body"><p>Shelf-stopping structures and labels that make people pick it up.</p><div class="service__tags"><span>Dielines</span><span>Label systems</span><span>Foils &amp; finishes</span><span>Print-ready artwork</span></div></div>
+            <span class="service__arrow">↗</span>
+          </li>
+          <li class="service">
+            <span class="service__num">03</span><h3>Posters &amp; Campaigns</h3>
+            <div class="service__body"><p>Print and social campaigns built on one loud, repeatable idea.</p><div class="service__tags"><span>Key visuals</span><span>Poster series</span><span>Social templates</span><span>Out-of-home</span></div></div>
+            <span class="service__arrow">↗</span>
+          </li>
+          <li class="service">
+            <span class="service__num">04</span><h3>Type &amp; Editorial</h3>
+            <div class="service__body"><p>Custom lettering, typefaces and editorial grids with real rhythm.</p><div class="service__tags"><span>Custom lettering</span><span>Typeface design</span><span>Magazine layout</span><span>Book covers</span></div></div>
+            <span class="service__arrow">↗</span>
+          </li>
+          <li class="service">
+            <span class="service__num">05</span><h3>Art Direction</h3>
+            <div class="service__body"><p>Shoots, illustration and motion briefs that stay on-brand from moodboard to final frame.</p><div class="service__tags"><span>Moodboards</span><span>Photo direction</span><span>Illustration</span><span>Motion graphics</span></div></div>
+            <span class="service__arrow">↗</span>
+          </li>
         </ul>
+      </section>
+
+      <section class="craft" id="craft">
+        <div class="section-head">
+          <span class="section-head__num">(04)</span>
+          <h2 class="section-head__title reveal">The <em>craft</em></h2>
+          <p class="section-head__text reveal">The unglamorous details that separate good design from finished design.</p>
+        </div>
+        <div class="craft__grid">
+          <div class="craft__card craft__card--type">
+            <div class="craft__demo" aria-hidden="true"><span class="kern">A<i>V</i>A</span></div>
+            <h3>Typography</h3>
+            <ul><li>Type pairing &amp; hierarchy</li><li>Kerning &amp; optical spacing</li><li>Custom lettering</li><li>Variable fonts</li></ul>
+          </div>
+          <div class="craft__card craft__card--color">
+            <div class="craft__demo" aria-hidden="true"><div class="swatches"><i style="--c:#ff4d1f">FF4D1F</i><i style="--c:#d4ff3a">D4FF3A</i><i style="--c:#0047ff">0047FF</i><i style="--c:#f1efe9">F1EFE9</i></div></div>
+            <h3>Colour</h3>
+            <ul><li>Palette systems</li><li>Pantone &amp; CMYK matching</li><li>Accessible contrast (WCAG)</li><li>Print proofing</li></ul>
+          </div>
+          <div class="craft__card craft__card--grid">
+            <div class="craft__demo" aria-hidden="true"><div class="gridviz"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            <h3>Grid &amp; Layout</h3>
+            <ul><li>Modular &amp; baseline grids</li><li>Editorial hierarchy</li><li>Responsive layouts</li><li>Information design</li></ul>
+          </div>
+          <div class="craft__card craft__card--print">
+            <div class="craft__demo" aria-hidden="true"><div class="marks"><span>C</span><span>M</span><span>Y</span><span>K</span></div></div>
+            <h3>Print Production</h3>
+            <ul><li>Prepress &amp; bleed setup</li><li>Dielines &amp; structures</li><li>Paper stocks &amp; finishes</li><li>Press checks</li></ul>
+          </div>
+        </div>
+        <div class="tools">
+          <h3 class="tools__title">Toolkit</h3>
+          <div class="tool"><span>Adobe Illustrator</span><div class="tool__bar"><i style="--v:.96"></i></div><b>96</b></div>
+          <div class="tool"><span>Adobe Photoshop</span><div class="tool__bar"><i style="--v:.92"></i></div><b>92</b></div>
+          <div class="tool"><span>Adobe InDesign</span><div class="tool__bar"><i style="--v:.9"></i></div><b>90</b></div>
+          <div class="tool"><span>Figma</span><div class="tool__bar"><i style="--v:.88"></i></div><b>88</b></div>
+          <div class="tool"><span>Glyphs</span><div class="tool__bar"><i style="--v:.78"></i></div><b>78</b></div>
+          <div class="tool"><span>After Effects</span><div class="tool__bar"><i style="--v:.74"></i></div><b>74</b></div>
+          <div class="tool"><span>Blender</span><div class="tool__bar"><i style="--v:.6"></i></div><b>60</b></div>
+        </div>
       </section>
 
       <section class="about" id="about">
         <div class="section-head">
-          <span class="section-head__num">(03)</span>
+          <span class="section-head__num">(05)</span>
           <h2 class="section-head__title reveal">About <em>me</em></h2>
         </div>
         <div class="about__body">
@@ -91,75 +210,91 @@
           <div class="about__stats">
             <div class="stat"><span class="stat__num" data-count="7">0</span><span class="stat__label">Years designing</span></div>
             <div class="stat"><span class="stat__num" data-count="120">0</span><span class="stat__label">Projects shipped</span></div>
-            <div class="stat"><span class="stat__num" data-count="48">0</span><span class="stat__label">Happy clients</span></div>
-            <div class="stat"><span class="stat__num" data-count="9">0</span><span class="stat__label">Design awards</span></div>
+            <div class="stat"><span class="stat__num" data-count="48">0</span><span class="stat__label">Clients worldwide</span></div>
+            <div class="stat"><span class="stat__num" data-count="300">0</span><span class="stat__label">Posters printed</span></div>
           </div>
-          <div class="about__tools">
-            <span>Illustrator</span><span>Photoshop</span><span>InDesign</span><span>Figma</span><span>Glyphs</span><span>After Effects</span><span>Blender</span>
+          <div class="timeline">
+            <h3 class="timeline__title">Experience</h3>
+            <div class="timeline__row"><span>2023 — Now</span><b>Independent Graphic Designer</b><em>Identity, packaging &amp; type for clients worldwide</em></div>
+            <div class="timeline__row"><span>2021 — 2023</span><b>Senior Designer, Branding Studio</b><em>Led identity projects for food, retail &amp; music brands</em></div>
+            <div class="timeline__row"><span>2019 — 2021</span><b>Junior Designer, Print &amp; Editorial</b><em>Magazine layouts, posters and prepress</em></div>
+            <div class="timeline__row"><span>2015 — 2019</span><b>BA (Hons) Communication Design</b><em>Typography &amp; visual communication</em></div>
           </div>
         </div>
       </section>
 
       <section class="process">
         <div class="section-head">
-          <span class="section-head__num">(04)</span>
+          <span class="section-head__num">(06)</span>
           <h2 class="section-head__title reveal">How it <em>works</em></h2>
         </div>
         <div class="process__steps">
-          <div class="step"><span>01</span><h3>Listen</h3><p>Workshop, research and a sharp brief we both sign off on.</p></div>
-          <div class="step"><span>02</span><h3>Explore</h3><p>Three distinct directions, from safe to slightly dangerous.</p></div>
-          <div class="step"><span>03</span><h3>Refine</h3><p>One direction pushed until every detail earns its place.</p></div>
-          <div class="step"><span>04</span><h3>Deliver</h3><p>Files, guidelines and templates your team can actually use.</p></div>
+          <div class="step"><span>01</span><h3>Listen</h3><p>Workshop, research and a sharp one-page brief we both sign off on.</p><small>Week 1</small></div>
+          <div class="step"><span>02</span><h3>Explore</h3><p>Three distinct directions, from safe to slightly dangerous.</p><small>Weeks 2 — 3</small></div>
+          <div class="step"><span>03</span><h3>Refine</h3><p>One direction pushed until every detail earns its place.</p><small>Weeks 4 — 6</small></div>
+          <div class="step"><span>04</span><h3>Deliver</h3><p>Print-ready files, guidelines and templates your team can actually use.</p><small>Week 7+</small></div>
         </div>
       </section>
 
       <div class="clients" aria-label="Selected clients">
         <div class="clients__track">
-          <span>Nocturne</span><span>Kōen</span><span>Fieldwork</span><span>Helio</span><span>Atlas</span><span>Saffron &amp; Salt</span><span>ECHO</span><span>Mono Studio</span>
-          <span>Nocturne</span><span>Kōen</span><span>Fieldwork</span><span>Helio</span><span>Atlas</span><span>Saffron &amp; Salt</span><span>ECHO</span><span>Mono Studio</span>
+          <span>Nocturne</span><span>Kōen</span><span>Fieldwork</span><span>Helio</span><span>Atlas</span><span>Saffron &amp; Salt</span><span>ECHO</span><span>GRIT</span>
+          <span>Nocturne</span><span>Kōen</span><span>Fieldwork</span><span>Helio</span><span>Atlas</span><span>Saffron &amp; Salt</span><span>ECHO</span><span>GRIT</span>
         </div>
       </div>
 
       <section class="quote">
         <blockquote class="reveal">“Yousuf gave us an identity people <em>screenshot</em>. Our first pressing sold out in a week.”</blockquote>
-        <cite>— Sana R., Founder, Nocturne Records</cite>
+        <cite>— Founder, Nocturne Records</cite>
       </section>
 
       <section class="contact" id="contact">
-        <span class="section-head__num">(05)</span>
-        <h2 class="contact__title">
+        <span class="section-head__num">(07)</span>
+        <h2 class="contact__title" data-fit="220">
           <span class="line"><span class="word">Let’s make</span></span>
           <span class="line"><span class="word">something</span></span>
           <span class="line"><span class="word serif accent">loud.</span></span>
         </h2>
-        <a class="contact__mail" href="mailto:hello@muhammadyousuf.design" data-cursor="Say hi">hello@muhammadyousuf.design <span>↗</span></a>
+        <p class="contact__text">Have a brand, a launch or a poster that needs to be impossible to ignore? Send a short brief — I reply within 24 hours.</p>
+        <div class="contact__actions">
+          <a class="contact__mail" id="mail-link" href="#" target="_blank" rel="noopener" data-cursor="Write">
+            <span class="contact__mail-text">muhammadyousuf77998bp@gmail.com</span><span class="contact__mail-arrow">↗</span>
+          </a>
+          <button class="contact__copy" id="copy-mail" type="button">Copy email</button>
+        </div>
         <div class="contact__foot">
-          <div class="contact__socials">
-            <a href="#" data-cursor="Open">Behance</a>
-            <a href="#" data-cursor="Open">Dribbble</a>
-            <a href="#" data-cursor="Open">Instagram</a>
-            <a href="#" data-cursor="Open">LinkedIn</a>
-          </div>
-          <span>© 2026 Muhammad Yousuf</span>
+          <span>© 2026 Muhammad Yousuf — Graphic Designer</span>
           <span id="clock">Karachi —</span>
+          <a href="#top" class="contact__top">Back to top ↑</a>
         </div>
       </section>
     </main>
 
     <div class="modal" id="modal" aria-hidden="true">
       <div class="modal__backdrop" data-close></div>
-      <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal__panel" data-lenis-prevent role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <button class="modal__close" data-close aria-label="Close">✕</button>
         <div class="modal__media"><img id="modal-img" alt="" /></div>
         <div class="modal__info">
           <span class="modal__cat" id="modal-cat"></span>
           <h3 id="modal-title"></h3>
-          <p id="modal-summary"></p>
-          <ul id="modal-deliverables"></ul>
-          <span class="modal__year" id="modal-year"></span>
+          <p class="modal__summary" id="modal-summary"></p>
+          <dl class="modal__meta" id="modal-meta"></dl>
+          <div class="modal__block"><h4>The brief</h4><p id="modal-challenge"></p></div>
+          <div class="modal__block"><h4>The approach</h4><p id="modal-approach"></p></div>
+          <div class="modal__block"><h4>Palette</h4><div class="modal__palette" id="modal-palette"></div></div>
+          <div class="modal__block"><h4>Typography</h4><ul class="modal__type" id="modal-type"></ul></div>
+          <div class="modal__block"><h4>Deliverables</h4><ul class="modal__tags" id="modal-deliverables"></ul></div>
+          <div class="modal__nav">
+            <button id="modal-prev" type="button">← Prev</button>
+            <span class="modal__year" id="modal-year"></span>
+            <button id="modal-next" type="button">Next →</button>
+          </div>
         </div>
       </div>
     </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script type="module" src="/src/main.js"></script>
   </body>

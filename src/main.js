@@ -1,4 +1,5 @@
 import './style.css'
+import './sections.css'
 import * as THREE from 'three'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -9,25 +10,76 @@ import { initScene } from './scene.js'
 gsap.registerPlugin(ScrollTrigger)
 document.body.classList.add('is-loading')
 
+const EMAIL = 'muhammadyousuf77998bp@gmail.com'
+const GMAIL_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}&su=${encodeURIComponent('Project enquiry')}`
+const GROUPS = {
+  nocturne: 'identity',
+  helio: 'identity',
+  atlas: 'identity',
+  saffron: 'identity',
+  koen: 'print',
+  fieldwork: 'print',
+  grit: 'type',
+  echo: 'type',
+}
+
 const img = (slug) => `/work/${slug}.svg`
 const pad = (n) => String(n + 1).padStart(2, '0')
+const isTouch = window.matchMedia('(hover: none)').matches
+
+// ---------- Fit display type ----------
+// Scale headlines so their widest line fills the column exactly — no overflow on any screen.
+function fitType() {
+  document.querySelectorAll('[data-fit]').forEach((el) => {
+    const max = +el.dataset.fit
+    el.style.fontSize = '100px'
+    const lines = [...el.querySelectorAll('.line')]
+    lines.forEach((l) => (l.style.width = 'max-content'))
+    const widest = Math.max(...lines.map((l) => l.getBoundingClientRect().width))
+    lines.forEach((l) => (l.style.width = ''))
+    const size = Math.min(max, (el.clientWidth / widest) * 100 * 0.99)
+    el.style.fontSize = `${size}px`
+  })
+  ScrollTrigger.refresh()
+}
+document.fonts.ready.then(fitType)
+window.addEventListener('resize', fitType)
+
+// ---------- Contact ----------
+document.getElementById('mail-link').href = GMAIL_URL
+const toast = document.getElementById('toast')
+function showToast(msg) {
+  toast.textContent = msg
+  toast.classList.add('is-on')
+  clearTimeout(showToast.t)
+  showToast.t = setTimeout(() => toast.classList.remove('is-on'), 2200)
+}
+document.getElementById('copy-mail').addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(EMAIL)
+    showToast('Email copied ✶')
+  } catch {
+    showToast(EMAIL)
+  }
+})
 
 // ---------- Work grid ----------
 const grid = document.getElementById('work-grid')
 grid.innerHTML = projects
   .map(
     (p, i) => `
-  <article class="card" data-index="${i}" data-cursor="View">
+  <article class="card" data-index="${i}" data-group="${GROUPS[p.slug]}" data-cursor="View" tabindex="0" role="button" aria-label="Open ${p.title}">
     <div class="card__inner">
       <div class="card__media">
         <img src="${img(p.slug)}" alt="${p.title} — ${p.category}" loading="lazy" />
         <div class="card__shine"></div>
       </div>
       <span class="card__tag">${p.category}</span>
+      <span class="card__swatches">${p.palette.map((c) => `<i style="background:${c}"></i>`).join('')}</span>
     </div>
     <div class="card__info">
       <h3 class="card__title"><span class="card__num">${pad(i)}</span>${p.title}</h3>
-      <span class="card__meta">${p.year}</span>
+      <span class="card__meta">${p.role} · ${p.year}</span>
     </div>
   </article>`
   )
@@ -35,29 +87,76 @@ grid.innerHTML = projects
 
 grid.querySelectorAll('.card').forEach((card) => {
   const inner = card.querySelector('.card__inner')
-  card.addEventListener('mousemove', (e) => {
-    const r = card.getBoundingClientRect()
-    const x = (e.clientX - r.left) / r.width
-    const y = (e.clientY - r.top) / r.height
-    inner.style.transform = `rotateY(${(x - 0.5) * 14}deg) rotateX(${(0.5 - y) * 14}deg)`
-    inner.style.setProperty('--mx', `${x * 100}%`)
-    inner.style.setProperty('--my', `${y * 100}%`)
-  })
-  card.addEventListener('mouseleave', () => (inner.style.transform = ''))
+  if (!isTouch) {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect()
+      const x = (e.clientX - r.left) / r.width
+      const y = (e.clientY - r.top) / r.height
+      inner.style.transform = `rotateY(${(x - 0.5) * 14}deg) rotateX(${(0.5 - y) * 14}deg)`
+      inner.style.setProperty('--mx', `${x * 100}%`)
+      inner.style.setProperty('--my', `${y * 100}%`)
+    })
+    card.addEventListener('mouseleave', () => (inner.style.transform = ''))
+  }
   card.addEventListener('click', () => openModal(+card.dataset.index))
+  card.addEventListener('keydown', (e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), openModal(+card.dataset.index)))
 })
+
+// ---------- Filters ----------
+const filterBtns = document.querySelectorAll('#filters button')
+filterBtns.forEach((btn) =>
+  btn.addEventListener('click', () => {
+    const f = btn.dataset.filter
+    filterBtns.forEach((b) => b.classList.toggle('is-active', b === btn))
+    const cards = [...grid.querySelectorAll('.card')]
+    gsap.to(cards, {
+      opacity: 0,
+      y: 30,
+      duration: 0.25,
+      onComplete: () => {
+        grid.classList.toggle('is-filtered', f !== 'all')
+        cards.forEach((c) => (c.hidden = f !== 'all' && c.dataset.group !== f))
+        gsap.fromTo(cards.filter((c) => !c.hidden), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'expo.out' })
+        ScrollTrigger.refresh()
+      },
+    })
+  })
+)
 
 // ---------- Modal ----------
 const modal = document.getElementById('modal')
-function openModal(i) {
+const panel = modal.querySelector('.modal__panel')
+const $ = (id) => document.getElementById(id)
+let current = 0
+
+function fillModal(i) {
   const p = projects[i]
-  document.getElementById('modal-img').src = img(p.slug)
-  document.getElementById('modal-img').alt = p.title
-  document.getElementById('modal-cat').textContent = `${pad(i)} — ${p.category}`
-  document.getElementById('modal-title').textContent = p.title
-  document.getElementById('modal-summary').textContent = p.summary
-  document.getElementById('modal-year').textContent = p.year
-  document.getElementById('modal-deliverables').innerHTML = p.deliverables.map((d) => `<li>${d}</li>`).join('')
+  current = i
+  $('modal-img').src = img(p.slug)
+  $('modal-img').alt = `${p.title} — ${p.category}`
+  $('modal-cat').textContent = `${pad(i)} / ${pad(projects.length - 1)} — ${p.category}`
+  $('modal-title').textContent = p.title
+  $('modal-summary').textContent = p.summary
+  $('modal-challenge').textContent = p.challenge
+  $('modal-approach').textContent = p.approach
+  $('modal-meta').innerHTML = [
+    ['Client', p.client],
+    ['Role', p.role],
+    ['Timeline', p.duration],
+  ]
+    .map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`)
+    .join('')
+  $('modal-palette').innerHTML = p.palette
+    .map((c) => `<button type="button" class="chip" style="--c:${c}" data-hex="${c}"><i></i><span>${c.toUpperCase()}</span></button>`)
+    .join('')
+  $('modal-type').innerHTML = p.type.map((t) => `<li>${t}</li>`).join('')
+  $('modal-deliverables').innerHTML = p.deliverables.map((d) => `<li>${d}</li>`).join('')
+  $('modal-year').textContent = p.year
+  panel.scrollTop = 0
+}
+
+function openModal(i) {
+  fillModal(i)
   modal.classList.add('is-open')
   modal.setAttribute('aria-hidden', 'false')
   lenis.stop()
@@ -67,8 +166,30 @@ function closeModal() {
   modal.setAttribute('aria-hidden', 'true')
   lenis.start()
 }
+function step(dir) {
+  const next = (current + dir + projects.length) % projects.length
+  gsap.to(panel, { opacity: 0, x: -30 * dir, duration: 0.2, onComplete: () => {
+    fillModal(next)
+    gsap.fromTo(panel, { opacity: 0, x: 30 * dir }, { opacity: 1, x: 0, duration: 0.4, ease: 'expo.out', clearProps: 'transform,opacity' })
+  } })
+}
 modal.querySelectorAll('[data-close]').forEach((el) => el.addEventListener('click', closeModal))
-window.addEventListener('keydown', (e) => e.key === 'Escape' && closeModal())
+$('modal-prev').addEventListener('click', () => step(-1))
+$('modal-next').addEventListener('click', () => step(1))
+$('modal-palette').addEventListener('click', async (e) => {
+  const chip = e.target.closest('.chip')
+  if (!chip) return
+  try {
+    await navigator.clipboard.writeText(chip.dataset.hex)
+    showToast(`${chip.dataset.hex.toUpperCase()} copied`)
+  } catch {}
+})
+window.addEventListener('keydown', (e) => {
+  if (!modal.classList.contains('is-open')) return
+  if (e.key === 'Escape') closeModal()
+  if (e.key === 'ArrowRight') step(1)
+  if (e.key === 'ArrowLeft') step(-1)
+})
 
 // ---------- Cursor ----------
 const cursor = document.getElementById('cursor')
@@ -117,6 +238,7 @@ const scene = initScene({
   canvas: document.getElementById('webgl'),
   images: projects.map((p) => img(p.slug)),
   manager,
+  mobile: window.innerWidth < 760,
   onHover: (i) => {
     sceneLabel = i >= 0 ? 'View' : ''
     cursor.classList.toggle('is-big', !!sceneLabel)
@@ -141,9 +263,10 @@ function intro() {
       lenis.start()
     },
   })
-  tl.to('#loader', { yPercent: -100, duration: 1.1, ease: 'expo.inOut' })
+  tl.to('.loader__swatches i', { scaleY: 0, duration: 0.5, stagger: 0.05, ease: 'power3.in' })
+    .to('#loader', { yPercent: -100, duration: 1.1, ease: 'expo.inOut' }, '-=0.2')
     .from('.hero__title .word', { yPercent: 110, rotate: 4, duration: 1.2, stagger: 0.08, ease: 'expo.out' }, '-=0.5')
-    .from('.hero__meta, .hero__bottom, .nav', { opacity: 0, y: 20, duration: 0.8, stagger: 0.1 }, '-=0.9')
+    .from('.hero__meta, .hero__bottom > *, .nav', { opacity: 0, y: 20, duration: 0.8, stagger: 0.08 }, '-=0.9')
 }
 // Never leave visitors stuck on the loader if a texture stalls.
 setTimeout(intro, 6000)
@@ -155,7 +278,13 @@ gsap.utils.toArray('.reveal').forEach((el) => {
 gsap.utils.toArray('.card').forEach((el) => {
   gsap.from(el, { y: 140, opacity: 0, rotate: 3, duration: 1.4, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 92%' } })
 })
-gsap.from('.service', { x: -60, opacity: 0, duration: 1, stagger: 0.12, ease: 'expo.out', scrollTrigger: { trigger: '.services__list', start: 'top 80%' } })
+gsap.utils.toArray('.principle').forEach((el) => {
+  gsap.from(el.querySelector('.principle__art'), { scale: 0.4, rotate: -45, opacity: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 85%' } })
+})
+gsap.from('.service', { x: -60, opacity: 0, duration: 1, stagger: 0.1, ease: 'expo.out', scrollTrigger: { trigger: '.services__list', start: 'top 80%' } })
+gsap.from('.craft__card', { y: 100, opacity: 0, duration: 1.1, stagger: 0.1, ease: 'expo.out', scrollTrigger: { trigger: '.craft__grid', start: 'top 85%' } })
+gsap.from('.tool__bar i', { scaleX: 0, duration: 1.6, stagger: 0.08, ease: 'expo.out', scrollTrigger: { trigger: '.tools', start: 'top 85%' } })
+gsap.from('.timeline__row', { y: 40, opacity: 0, duration: 1, stagger: 0.1, ease: 'expo.out', scrollTrigger: { trigger: '.timeline', start: 'top 85%' } })
 gsap.from('.step', { y: 100, opacity: 0, duration: 1.1, stagger: 0.12, ease: 'expo.out', scrollTrigger: { trigger: '.process__steps', start: 'top 85%' } })
 gsap.from('.contact__title .word', { yPercent: 110, duration: 1.2, stagger: 0.1, ease: 'expo.out', scrollTrigger: { trigger: '.contact', start: 'top 60%' } })
 

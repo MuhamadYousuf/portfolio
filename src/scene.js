@@ -18,9 +18,9 @@ function curvedPlane(r) {
   return geo
 }
 
-export function initScene({ canvas, images, manager, onHover, onSelect }) {
+export function initScene({ canvas, images, manager, mobile, onHover, onSelect }) {
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' })
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobile ? 1.5 : 2))
   renderer.setClearColor(0x0c0c0c, 1)
   renderer.toneMapping = THREE.ACESFilmicToneMapping
   renderer.outputColorSpace = THREE.SRGBColorSpace
@@ -34,7 +34,7 @@ export function initScene({ canvas, images, manager, onHover, onSelect }) {
   camera.position.set(0, 0, 13)
 
   // ---------- Iridescent blob ----------
-  const blobGeo = new THREE.SphereGeometry(1.25, 160, 160)
+  const blobGeo = new THREE.SphereGeometry(1.25, mobile ? 72 : 160, mobile ? 72 : 160)
   const basePositions = blobGeo.attributes.position.array.slice()
   const blob = new THREE.Mesh(
     blobGeo,
@@ -156,7 +156,7 @@ export function initScene({ canvas, images, manager, onHover, onSelect }) {
     renderer.setSize(w, h, false)
     camera.aspect = w / h
     const narrow = w < 760
-    camera.position.z = narrow ? 17 : 13
+    camera.position.z = narrow ? 15.5 : 13
     camera.updateProjectionMatrix()
   }
   window.addEventListener('resize', resize)
