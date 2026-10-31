@@ -1,11 +1,13 @@
 import './style.css'
 import './sections.css'
+import './chat.css'
 import * as THREE from 'three'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
 import { projects } from './projects.js'
 import { initScene } from './scene.js'
+import { initChat } from './chat.js'
 
 gsap.registerPlugin(ScrollTrigger)
 document.body.classList.add('is-loading')
@@ -190,6 +192,8 @@ window.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') step(1)
   if (e.key === 'ArrowLeft') step(-1)
 })
+
+initChat({ openProject: openModal })
 
 // ---------- Cursor ----------
 const cursor = document.getElementById('cursor')

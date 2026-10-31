@@ -287,6 +287,33 @@
       </div>
     </div>
 
+    <button class="chat-fab" id="chat-fab" type="button" aria-controls="chat" aria-expanded="false" data-cursor="Chat">
+      <span class="chat-fab__face" aria-hidden="true">✶</span>
+      <span class="chat-fab__label">Ask Yusi</span>
+    </button>
+
+    <aside class="chat" id="chat" aria-label="Chat with Yusi" aria-hidden="true">
+      <header class="chat__head">
+        <div class="chat__avatar" aria-hidden="true">✶</div>
+        <div>
+          <strong>Yusi</strong>
+          <span>Yousuf’s AI assistant · English / Roman Urdu</span>
+        </div>
+        <button class="chat__close" id="chat-close" type="button" aria-label="Close chat">✕</button>
+      </header>
+      <div class="chat__log" id="chat-log" data-lenis-prevent aria-live="polite"></div>
+      <div class="chat__chips" id="chat-chips">
+        <button type="button">Kya haal hai? 👋</button>
+        <button type="button">What do you design?</button>
+        <button type="button">Logo kitne ka banega?</button>
+        <button type="button">Show me packaging work</button>
+      </div>
+      <form class="chat__form" id="chat-form" autocomplete="off">
+        <input id="chat-input" type="text" maxlength="500" placeholder="Type in English ya Roman Urdu…" aria-label="Message" />
+        <button type="submit" aria-label="Send">↑</button>
+      </form>
+    </aside>
+
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script type="module" src="/src/main.js"></script>
